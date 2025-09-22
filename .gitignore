@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+dist/
+build/
+.coverage
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints
+.python-version
+
+# Envs
+.venv/
+.env
+.env.*
+
+# Editors/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project artifacts
+db/*.duckdb
+db/*.wal
+logs/
+tmp/
+.cache/
+
+# Dagster (common local dirs/logs)
+.dagster/
+.dagster_home/
+dagster_home/
+dagster_storage/
+dagster_logs/
+event_logs/
+asset_materializations/
+run_storage/
+instance/        # some setups use this
+
+# Node/web (if you add a frontend later)
+node_modules/
+*.log
