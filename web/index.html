@@ -1,9 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <title>OpenSecrets Press</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>OpenSecrets Press</body>
+
+    <script src='https://unpkg.com/crossfilter2@1.4.8/crossfilter.js'></script>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src='https://unpkg.com/dc@4.2.7/dist/dc.js'></script>   
+    <script type='module' src='js/main.js'></script>
+    
+    <link href='https://cdn.jsdelivr.net/npm/dc@4.2.7/dist/style/dc.min.css' rel='stylesheet' type='text/css'>    
+    <link href='./css/layout.css' rel='stylesheet' type='text/css'>
+    <link href='./css/style.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+    <div id='chart-container' class='container'>
+        <div id='title'>
+            <span> OpenSecrets Media Coverage</span>
+        </div>
+
+        <div id='filters'></div>
+        <div id='chart-map' class='map'></div>
+        <div id='chart-list'></div>
+    </div>
+</body>
 </html>

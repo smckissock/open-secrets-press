@@ -1,0 +1,79 @@
+:root {
+    font-size: calc(0.5em + 1vw);
+
+    --logo-height: 50px;  
+    --bias-height: 200px;
+    --media-type-height: 270px;
+        
+    --left-width: 220px;
+    --center-width: 180px; 
+}
+
+body {
+    font-family: "filson-pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "title               title                      filters      "       
+        "chart-publication   chart-bias                 chart-list        "
+        "chart-publication   chart-mediaOutletType      chart-list        ";
+    grid-template-columns: var(--left-width) var(--center-width) 1fr;
+    grid-template-rows: var(--logo-height) var(--bias-height)  1fr;
+    gap: 10px 20px;
+    margin: 3px;
+    height: 100vh;  /* 100vh is not enough for some reason */
+    width: calc(100vw - 1.1rem);
+    overflow: hidden;
+}
+
+#title {
+    grid-area: title;
+    font-size: 30px;
+    font-weight: 600; 
+    margin-top: 5px;
+
+    fill: rgb(6, 15, 240); 
+}
+
+#filters {
+    grid-area: filters;
+}
+
+#chart-month {
+    grid-area: chart-month;
+}
+
+#chart-media-type {
+    grid-area: chart-media-type;
+}
+
+
+#chart-bias {
+    grid-area: chart-bias;
+}
+
+#chart-publication {
+    grid-area: chart-publication;
+    overflow-y: auto;
+}
+
+#chart-list {
+    grid-area: chart-list;
+    overflow: auto;
+}
+
+#chart-topic, #chart-publication, #chart-mediaOutletType, #chart-bias {
+    font-weight: 500;
+    font-size: 16px;
+}
+

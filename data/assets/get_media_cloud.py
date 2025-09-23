@@ -35,11 +35,11 @@ def get_media_cloud_stories():
     search_api = mediacloud.api.SearchApi(os.environ['MEDIACLOUD_API_KEY'])
 
     collection_ids = [
-        34412234,
-        262985232,
-        262985236,
-        186572435,
-        186572516
+        34412234,   # United States - National
+        262985232,  # US College Papers
+        262985236,  # US Most Visited New Online (Mar 2025)
+        186572435,  # U.S. Top Newspapers 2018
+        186572516   # U.S. Top Sources 2018
     ]
 
     terms = ["opensecrets"]
@@ -91,6 +91,3 @@ def get_media_cloud():
 if __name__ == "__main__":
     stories = get_media_cloud()
     print(f"Processed {len(stories)} stories")
-    # if stories:
-    #     print(f"Keys: {list(stories[0].keys())}")
-    #     print(f"First story: {stories[0]}")
