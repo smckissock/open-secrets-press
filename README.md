@@ -1,12 +1,12 @@
-** OpenSecrets Press
+# OpenSecrets Press
 
-*** Data
+### Data
 - Use MediaCloud API to access OpenSecrets press coverage
-- Add articles wrtieen by OpenSecrets staff
-- Use information about meda outles from google sheet
-- Use Newspaper3k to extract text, photo url, etc
-- Use Dagster to get ray data, populate star schema, produce flat csv for website  
+- Add articles written by OpenSecrets staff
+- Use information about media outlets from a Google Sheet
+- Use Newspaper3k to extract text, photo URL, etc.
+- Use Dagster to get raw data, populate a star schema, and produce flat CSV for the website
 
-*** Web
-- All data in csv
-- Use d3.js/dc.js/crossfilter to render data
+### Web
+- All data in CSV
+- Use D3.js / dc.js / Crossfilter to render data
