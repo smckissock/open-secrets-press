@@ -1,17 +1,28 @@
 import {formatDate, addCommas, scrollToTop, biasColors} from './shared.js';
+import {RowChart} from './rowChart.js'; 
 
 
 export class Site {
 
-    constructor() {
-        if (window.location.hostname === '127.0.0.1') 
+  constructor() {
+    if (window.location.hostname === '127.0.0.1') 
             document.title = 'OpenSecrets DEV';
 
         this.configure();                
         this.getData().then(stories => {
             this.stories = stories;
+            this.stories.forEach(story => {
+                story.count = 1;
+                story.date = new Date(story.publish_date);
+                if (story.title == '') {
+                    story.title = 'Link to story';
+                }               
+            });
             this.facts = new crossfilter(stories);
-            decodeURI.facts = this.facts;
+            dc.facts = this.facts;
+
+            this.setupCharts();
+            dc.renderAll();
             this.refresh();
         });
         window.site = this;        
@@ -27,7 +38,29 @@ export class Site {
     }
 
     refresh() {
-        this.listStories()
+        window.site.listStories();
+
+        const stories = dc.facts.allFiltered().length;
+        let filters = [];
+        d3.select('#filters')
+            .html(`
+                <button id='clear-filters' class='clear-button'>Clear All</button>
+                <span class='case-count'> ${addCommas(stories)} stories</span> &nbsp;
+                <span class='case-filters'>${filters.join(', ')}</span>
+            `);
+
+        d3.select('#clear-filters').on('click', function() {
+            dc.filterAll();
+            dc.map.dim.filter(null);
+            dc.map.update();
+            dc.refresh();
+            window.site.listStories();
+        });
+    }
+
+    setupCharts() {
+        dc.refresh = this.refresh;
+        new RowChart(this.facts, 'media_name', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
     }
 
     listStories() {
@@ -38,7 +71,8 @@ export class Site {
                 <div class="story-body">
                   <h5 class="story-topic">
                     <strong>${d.media_name}</strong> 
-                  </h5>
+                     <strong>${formatDate(d.date)} 
+                   </h5>
                   <h3 class="story-title">${d.title}</h3>
                 </div>
               </div>
@@ -46,9 +80,9 @@ export class Site {
           }
 
         let html = this.facts.allFiltered()
-            // .sort((a, b) =>
-            //     new Date(b.date) - new Date(a.date)
-            // )
+            .sort((a, b) =>
+                new Date(b.date) - new Date(a.date)
+            )
             .slice(0, storiesToShow)
             .map(d => storyResult(d))
             .join('');

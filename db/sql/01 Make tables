@@ -1,0 +1,77 @@
+DROP TABLE IF EXISTS Story;
+DROP TABLE IF EXISTS media_outlet;
+DROP TABLE IF EXISTS bias_rating;
+DROP TABLE IF EXISTS media_outlet_type;
+DROP TABLE IF EXISTS stg_newspaper;
+
+
+CREATE TABLE stage_newspaper (
+    media_cloud_id  VARCHAR,
+    import_date     TIMESTAMP,
+    title           VARCHAR,
+    text            TEXT,
+    publish_date    TIMESTAMP,
+    authors         VARCHAR,
+    top_image       VARCHAR,
+    summary         TEXT,
+    success         BOOLEAN,
+    error           VARCHAR
+);
+
+
+
+
+CREATE OR REPLACE TABLE media_outlet_type (
+    id               INTEGER PRIMARY KEY,
+    edit_time        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name             VARCHAR   NOT NULL,
+    media_cloud_code VARCHAR   NOT NULL
+);
+
+CREATE OR REPLACE TABLE bias_rating (
+    id         INTEGER PRIMARY KEY,
+    edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name       VARCHAR   NOT NULL,
+    ordering   INTEGER   NOT NULL
+);
+
+CREATE OR REPLACE TABLE media_outlet (
+    id                   INTEGER PRIMARY KEY,
+    edit_time            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name                 VARCHAR   NOT NULL,
+    media_cloud_id       INTEGER   NOT NULL UNIQUE,
+    domain_name          VARCHAR   NOT NULL,
+    media_outlet_type_id INTEGER   NOT NULL DEFAULT 1,
+    state_id             INTEGER   NOT NULL DEFAULT 1,
+    bias_rating_id       INTEGER   NOT NULL DEFAULT 1,
+    media_type           VARCHAR   NOT NULL,
+    note                 VARCHAR   NOT NULL,
+    active               BOOLEAN   NOT NULL DEFAULT TRUE,
+    author               VARCHAR   NOT NULL DEFAULT '',
+    FOREIGN KEY (media_outlet_type_id)  REFERENCES media_outlet_type(id),
+    FOREIGN KEY (bias_rating_id)        REFERENCES bias_rating(id)
+);
+
+CREATE OR REPLACE TABLE story (
+    id                  INTEGER PRIMARY KEY,
+    edit_time           TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    media_cloud_id      VARCHAR   NOT NULL DEFAULT '',
+    publish_date        TIMESTAMP NOT NULL DEFAULT TIMESTAMP '2000-01-01 00:00:00',
+    title               VARCHAR            DEFAULT '',
+    url                 VARCHAR   NOT NULL,
+    language            VARCHAR   NOT NULL DEFAULT 'en',
+    ap_syndicated       BOOLEAN   NOT NULL DEFAULT FALSE,
+    media_url           VARCHAR   NOT NULL DEFAULT '',
+    media_outlet_id     INTEGER   NOT NULL DEFAULT 1,
+    newspaper_title     VARCHAR   NOT NULL,
+    authors             VARCHAR   NOT NULL DEFAULT '',
+    image               VARCHAR   NOT NULL DEFAULT '',
+    body                VARCHAR   NOT NULL DEFAULT '',
+    description         VARCHAR   NOT NULL DEFAULT '',
+    newspaper_edit_time TIMESTAMP,
+    active              BOOLEAN   NOT NULL DEFAULT TRUE,
+    sentence            VARCHAR   NOT NULL DEFAULT '',
+    link                VARCHAR            DEFAULT '',
+    link_title          VARCHAR            DEFAULT '',
+    FOREIGN KEY (media_outlet_id) REFERENCES media_outlet(id),
+);
