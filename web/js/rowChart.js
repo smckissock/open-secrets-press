@@ -23,8 +23,8 @@ export class RowChart {
         function generatePublicationColorMap(facts) {
             let publicationColorMap = {};
             facts.all().forEach(record => {
-                if (!publicationColorMap[record.publication]) {
-                    publicationColorMap[record.publication] = biasColors[record.bias] || '#c6dbef';
+                if (!publicationColorMap[record.mediaOutlet]) {
+                    publicationColorMap[record.mediaOutlet] = biasColors[record.biasRating] || '#c6dbef';
                 }
             });
             return publicationColorMap;
@@ -44,9 +44,9 @@ export class RowChart {
                 if (dc.isGillmor)
                     return color;
                 
-                if (attribute === 'publication') 
+                if (attribute === 'mediaOutlet') 
                     color = publicationColorMap[d];
-                if (attribute === 'bias')
+                if (attribute === 'biasRating')
                     color = biasColors[d];
                 return color;
             })

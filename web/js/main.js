@@ -69,14 +69,27 @@ export class Site {
     listStories() {
         const storiesToShow = 60;
         function storyResult(d) {
+            console.log(d.biasRating + '  ' + biasColors[d.biasRating])
             return `
-              <div class="story" onclick="window.open('${d.url}', '_blank', 'noopener')">          
+              <div class="story" onclick="window.open('${d.url}', '_blank', 'noopener')">
+                <img
+                  class="story-image"
+                  src="${d.image}"
+                  onload="this.classList.add('loaded')"
+                  onerror="this.style.display='none'"
+                  height="90"
+                  width="120"
+                >
                 <div class="story-body">
                   <h5 class="story-topic">
-                    <strong>${d.mediaOutlet}</strong> 
-                     <strong>${formatDate(d.date)} 
-                   </h5>
+                    <strong>${d.mediaOutlet}</strong> ${formatDate(d.date)} ${d.authors}
+                    <span style="float:right;color:${biasColors[d.biasRating]||'#333'}">
+                      ${d.biasRating}
+                    </span>
+                  </h5>
                   <h3 class="story-title">${d.title}</h3>
+                  <p class="story-excerpt">
+                  </p>
                 </div>
               </div>
             `;
@@ -92,7 +105,7 @@ export class Site {
 
         d3.select('#chart-list')
             .html(html);
-    }   
+    }       
 }
 
 new Site(); 
