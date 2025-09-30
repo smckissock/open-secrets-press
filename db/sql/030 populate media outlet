@@ -1,0 +1,35 @@
+INSERT INTO media_outlet (
+    name,
+    domain_name,
+    media_outlet_type_id,
+    state_id,
+    bias_rating_id,
+    note,
+    active
+)
+SELECT
+    s.name,
+    s.domain_name,
+    mot.id,
+    st.id,
+    br.id,
+    '',
+    s.active
+FROM stage_media_outlet s
+JOIN media_outlet_type mot ON mot.name = s.media_outlet_type
+JOIN state st              ON st.name = s.state
+JOIN bias_rating br        ON br.name = s.bias
+WHERE s.name <> 'Unspecified';
+
+
+INSERT INTO media_outlet (
+    id,
+    name,
+    domain_name,
+    media_outlet_type_id,
+    state_id,
+    bias_rating_id,
+    note,
+    active
+)
+SELECT 1, 'Unspecified', 'None', 1, 1, 1, '', 1;

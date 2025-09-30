@@ -1,0 +1,659 @@
+﻿name,domain_name,media_outlet_type,state,bias,active
+Unspecified,None,Other,Unspecified,Unspecified,TRUE
+Philadelphia Inquirer,inquirer.com,Local News Outlet,Pennsylvania,Center,TRUE
+Boston Globe,bostonglobe.com,Local News Outlet,Massachusetts,Center,TRUE
+Newsday,newsday.com,Local News Outlet,New York,Center,TRUE
+New York Post,nypost.com,Local News Outlet,New York,Right,TRUE
+Daily Kos,dailykos.com,Web Publication,Unspecified,Left,TRUE
+CNN,cnn.com,Cable TV News,Unspecified,Center Left,TRUE
+CBS News,cbsnews.com,Network TV News,Unspecified,Center,TRUE
+Political Wire,politicalwire.com,Web Publication,Unspecified,Center,TRUE
+Town Hall,townhall.com,Web Publication,Unspecified,Right,TRUE
+Gateway Pundit,thegatewaypundit.com,Web Publication,Unspecified,Right,TRUE
+Daily Caller,dailycaller.com,Web Publication,Unspecified,Right,TRUE
+Red State,redstate.com,Web Publication,Unspecified,Right,TRUE
+NPR,npr.org,Web Publication,Unspecified,Center Left,TRUE
+Breitbart,breitbart.com,Web Publication,Unspecified,Right,TRUE
+Alternet,alternet.org,Web Publication,Unspecified,Right,TRUE
+Hot Air,hotair.com,Web Publication,Unspecified,Right,TRUE
+PJ Media,pjmedia.com,Web Publication,Unspecified,Right,TRUE
+ABC News ,abcnews.go.com,Network TV News,Unspecified,Center,TRUE
+NBC News,nbcnews.com,Network TV News,Unspecified,Center,TRUE
+USA Today,usatoday.com,Web Publication,Unspecified,Center,TRUE
+Huffpost,huffpost.com,Web Publication,Unspecified,Center Left,TRUE
+LA Times,latimes.com,Local News Outlet,California,Center,TRUE
+Business Insider,businessinsider.com,Web Publication,Unspecified,Center,TRUE
+The Atlantic,theatlantic.com,Opinion Journal,Unspecified,Center Left,TRUE
+Patriot Post,patriotpost.us,Web Publication,Unspecified,Right,TRUE
+BBC,bbc.com,National News Outlet,UK,Center,TRUE
+Salon,salon.com,Web Publication,Unspecified,Left,TRUE
+Vox,vox.com,Web Publication,Unspecified,Center Left,TRUE
+The Week,theweek.com,Web Publication,Unspecified,Center,TRUE
+Talking Points Memo,talkingpointsmemo.com,Web Publication,Unspecified,Left,TRUE
+Time,time.com,National News Outlet,Unspecified,Center,TRUE
+Chicago Tribune,chicagotribune.com,Local News Outlet,Illinois,Center,TRUE
+Mercury News,mercurynews.com,Local News Outlet,California,Center,TRUE
+Atlanta Journal-Constitution,ajc.com,Local News Outlet,Georgia,Center,TRUE
+Dail Signal,dailysignal.com,Web Publication,Unspecified,Center,FALSE
+Wired,wired.com,Web Publication,Unspecified,Center Left,TRUE
+Inquisitr,inquisitr.com,Web Publication,Unspecified,Center,TRUE
+Honolulu Star Advertiser,staradvertiser.com,Web Publication,Hawaii,Center,TRUE
+The Conversation,theconversation.com,Web Publication,Unspecified,Right,TRUE
+NJ.com,nj.com,Web Publication,New Jersey,Center,TRUE
+National Catholic Reporter,ncronline.org,Web Publication,Unspecified,Center,TRUE
+Mother Jones,motherjones.com,Opinion Journal,Unspecified,Left,TRUE
+Benzinga,benzinga.com,Web Publication,Unspecified,Center,TRUE
+UPI,upi.com,Web Publication,Unspecified,Center,TRUE
+AP News,apnews.com,Web Publication,Unspecified,Center,TRUE
+Gizmodo,gizmodo.com,Web Publication,Unspecified,Center,TRUE
+The Arkansas Democrat,arkansasonline.com,Local News Outlet,Arkansas,Center,TRUE
+OANN,oann.com,Cable TV News,Unspecified,Center,TRUE
+New York Daily News,nydailynews.com,Local News Outlet,New York,Center,TRUE
+The Wrap,thewrap.com,Web Publication,Unspecified,Center,TRUE
+Orlando Sentinel,orlandosentinel.com,Local News Outlet,Florida,Center,TRUE
+Baltimore Sun,baltimoresun.com,Local News Outlet,Maryland,Center,TRUE
+The Verge,theverge.com,Web Publication,Unspecified,Center,TRUE
+The Nation,thenation.com,Opinion Journal,Unspecified,Left,TRUE
+Roll Call,rollcall.com,Opinion Journal,Unspecified,Center,TRUE
+New York Times,nytimes.com,National News Outlet,Unspecified,Center,TRUE
+Minnesota Start Tribune,startribune.com,Local News Outlet,Minnesota,Center,TRUE
+Slate,slate.com,Web Publication,Unspecified,Left,TRUE
+Christian Science Monitor,csmonitor.com,Local News Outlet,Unspecified,Center,TRUE
+Cleveland.com,cleveland.com,Web Publication,Ohio,Center,TRUE
+Kennebec Journal,centralmaine.com,Local News Outlet,Maine,Center,TRUE
+The Daily Dot,dailydot.com,Web Publication,Unspecified,Center,TRUE
+Greenfield Recorder,recorder.com,Web Publication,Unspecified,Center,TRUE
+Orange Count Register,ocregister.com,Local News Outlet,California,Center,TRUE
+The Berkshire Eagle,berkshireeagle.com,Local News Outlet,Massachusetts,Center,TRUE
+OpEd News ,opednews.com,Web Publication,Unspecified,Left,TRUE
+Orlando Sun Sentinel,sun-sentinel.com,Local News Outlet,Florida,Center,TRUE
+Vanity Fair,vanityfair.com,Web Publication,Unspecified,Center,TRUE
+Milwaukee Journal Sentinel,jsonline.com,Local News Outlet,Wisconsin,Center,TRUE
+Chicago Sun-Times,suntimes.com,Local News Outlet,Illinois,Center,TRUE
+The American Spectator,spectator.org,Local News Outlet,UK,Right,TRUE
+Fox News,foxnews.com,Cable TV News,Unspecified,Right,TRUE
+The Independent,independent.co.uk,Local News Outlet,UK,Center Left,TRUE
+MSNBC,msnbc.com,Cable TV News,Unspecified,Left,TRUE
+Rolling Stone,rollingstone.com,Web Publication,Unspecified,Left,TRUE
+PBS,pbs.org,National News Outlet,Unspecified,Center Left,TRUE
+Daily Mail,dailymail.co.uk,Local News Outlet,UK,Center Right,TRUE
+People,people.com,Web Publication,Unspecified,Center,TRUE
+Hartford Currant,courant.com,Local News Outlet,Connecticut,Center,TRUE
+Tampa Bay Times,tampabay.com,Local News Outlet,Florida,Center,TRUE
+Daily Hampshire Gazette,gazettenet.com,Web Publication,Massachusetts,Center,TRUE
+Denver Post,denverpost.com,Local News Outlet,Colorado,Center,TRUE
+National Catholic Register,ncregister.com,Web Publication,Unspecified,Center,TRUE
+National Memo,nationalmemo.com,Web Publication,Unspecified,Center,TRUE
+Twin Cities Pioneer Press,twincities.com,Local News Outlet,Minnesota,Center,TRUE
+St. Lous Post-Dispatch,stltoday.com,Local News Outlet,Missouri,Center,TRUE
+The Intercept,theintercept.com,Web Publication,Unspecified,Left,TRUE
+Fortune,fortune.com,Web Publication,Unspecified,Center,TRUE
+San Diego Union-Tribune,sandiegouniontribune.com,Web Publication,California,Center,TRUE
+The Pilot-Tribune,pilotonline.com,Local News Outlet,Virginia,Center,TRUE
+The  Columbus Dispatch,dispatch.com,Web Publication,Ohio,Center,TRUE
+The FactCheck.org,factcheck.org,Web Publication,Unspecified,Center Left,TRUE
+AZCentral.com,azcentral.com,Local News Outlet,Arizona,Center,TRUE
+Mashable,mashable.com,Web Publication,Unspecified,Center,TRUE
+The Root,theroot.com,Web Publication,Unspecified,Center,TRUE
+Mongabay,mongabay.com,Web Publication,Unspecified,Center,TRUE
+Bloomberg,bloomberg.com,Web Publication,Unspecified,Center,TRUE
+Oregon Live,oregonlive.com,Local News Outlet,Oregon,Center,TRUE
+The Sun,the-sun.com,Web Publication,Unspecified,Center,TRUE
+Vermont Rutland Herald,rutlandherald.com,Local News Outlet,Vermont,Center,TRUE
+CNBC,cnbc.com,Cable TV News,Unspecified,Center,TRUE
+Schwartxreport.net,schwartzreport.net,Web Publication,Unspecified,Center,TRUE
+Hollywood Reporter,hollywoodreporter.com,Web Publication,Unspecified,Center,TRUE
+South Carolina Post and Courier,postandcourier.com,Web Publication,South Carolina,Center,TRUE
+Ohaha World-Herald,omaha.com,Local News Outlet,Nebraska,Center,TRUE
+Mint Press News,mintpressnews.com,Web Publication,Unspecified,Center,TRUE
+Reuters,reuters.com,Web Publication,Unspecified,Center,TRUE
+RadarOnline,radaronline.com,Web Publication,Unspecified,Center,TRUE
+TMZ,tmz.com,Web Publication,Unspecified,Center,TRUE
+Hollywood Life,hollywoodlife.com,Web Publication,Unspecified,Center,TRUE
+Entertainment Weekly,ew.com,Web Publication,Unspecified,Center,TRUE
+NewsOne,newsone.com,Web Publication,Unspecified,Center,TRUE
+The Real News Network,therealnews.com,Web Publication,Unspecified,Center,TRUE
+Variety,variety.com,Web Publication,Unspecified,Center,TRUE
+Engadget,engadget.com,Web Publication,Unspecified,Center,TRUE
+Harper''s Magazine,harpers.org,Opinion Journal,Unspecified,Center,TRUE
+Buzzfeed,buzzfeed.com,Web Publication,Unspecified,Center,TRUE
+Cincinnati Inquirer,cincinnati.com,Local News Outlet,Ohio,Center,TRUE
+Grist,grist.org,Web Publication,Unspecified,Center,TRUE
+TechRadar,techradar.com,Web Publication,Unspecified,Center,TRUE
+NewsBlaze,newsblaze.com,Web Publication,Unspecified,Center,TRUE
+Scientific American,scientificamerican.com,Web Publication,Unspecified,Center,TRUE
+CNET,cnet.com,Web Publication,Unspecified,Center,TRUE
+Science Alert,sciencealert.com,Web Publication,Unspecified,Center,TRUE
+IndyStar,indystar.com,Local News Outlet,Indiana,Center,TRUE
+GQ,gq.com,Web Publication,Unspecified,Center,TRUE
+Quartz,qz.com,Web Publication,Unspecified,Center,TRUE
+Syracuse.com,syracuse.com,Local News Outlet,New York,Center,TRUE
+CBS Sports,cbssports.com,Network TV News,Unspecified,Center,TRUE
+Us Weekly,usmagazine.com,Web Publication,Unspecified,Center,TRUE
+New Hampshire Gazette,nhgazette.com,Local News Outlet,New Hampshire,Center,TRUE
+RealClearPolitics,realclearpolitics.com,Web Publication,Unspecified,Center Right,TRUE
+Yahoo,yahoo.com,Web Publication,Unspecified,Center,TRUE
+Observer,observer.com,Web Publication,Unspecified,Center,TRUE
+Advocate,advocate.com,Web Publication,Unspecified,Left,TRUE
+Afro American Newspaper,afro.com,Web Publication,Unspecified,Center Left,TRUE
+Aljazeera,aljazeera.com,Web Publication,Unspecified,Center Left,TRUE
+Arkansas Times,arktimes.com,Local News Outlet,Arkansas,Center,TRUE
+Chicago Reader,chicagoreader.com,Local News Outlet,Illinois,Left,TRUE
+Common Dreams,commondreams.org,Web Publication,Unspecified,Left,TRUE
+Crooks and Liars,crooksandliars.com,Web Publication,Unspecified,Left,TRUE
+Fair,fair.org,Web Publication,Unspecified,Left,TRUE
+Hyperallergic,hyperallergic.com,Web Publication,Unspecified,Left,TRUE
+Informed Comment,juancole.com,Web Publication,Unspecified,Left,TRUE
+Just Security,justsecurity.org,Web Publication,Unspecified,Center,TRUE
+Nation of Change,nationofchange.org,Web Publication,Unspecified,Left,TRUE
+New Republic,newrepublic.com,Opinion Journal,Unspecified,Center Left,TRUE
+Next City,nextcity.org,Web Publication,Unspecified,Left,TRUE
+N+1,nplusonemag.com,Web Publication,Unspecified,Left,TRUE
+Palmer Report,palmerreport.com,Web Publication,Unspecified,Left,TRUE
+Politics USA,politicususa.com,Web Publication,Unspecified,Left,TRUE
+Popular Resistance,popularresistance.org,Web Publication,Unspecified,Left,TRUE
+Tech Crunch,techcrunch.com,Web Publication,Unspecified,Center Left,TRUE
+ProPublica,propublica.org,Web Publication,Unspecified,Center Left,TRUE
+NY Review of Books,nybooks.com,Web Publication,Unspecified,Left,TRUE
+PoPville,popville.com,Web Publication,District of Columbia,Left,TRUE
+Portland Mercury,portlandmercury.com,Web Publication,Oregon,Center,TRUE
+The Progressive,progressive.org,Opinion Journal,Unspecified,Left,TRUE
+The American Prospect,prospect.org,Opinion Journal,Unspecified,Left,TRUE
+The Grio,thegrio.com,Web Publication,Unspecified,Center,TRUE
+The New Civil Rights Movement,thenewcivilrightsmovement.com,Web Publication,Unspecified,Center,TRUE
+The Stranger,thestranger.com,Web Publication,Washington,Left,TRUE
+Washington Blade,washingtonblade.com,Web Publication,District of Columbia,Left,TRUE
+WBUR,wbur.org,Local Broadcast News,Massachusetts,Center Left,TRUE
+WHYY,whyy.org,Local Broadcast News,Pennsylvania,Center,TRUE
+Wonkette,wonkette.com,Web Publication,Unspecified,Left,TRUE
+Anchorage Daily News,adn.com,Local News Outlet,Alaska,Center,TRUE
+Arlington Connection,arlingtonconnection.com,Web Publication,Virginia,Center,TRUE
+ARLnow,arlnow.com,Web Publication,Virginia,Center,TRUE
+Audacy,audacy.com,Local News Outlet,Unspecified,Center,TRUE
+Bay State Banner,baystatebanner.com,Local News Outlet,Massachusetts,Center,TRUE
+Black America Web,blackamericaweb.com,Local News Outlet,Unspecified,Center,TRUE
+Boston.com,boston.com,Local News Outlet,Massachusetts,Center,TRUE
+City and State NY,cityandstateny.com,Local News Outlet,New York,Center,TRUE
+Civil Beat,civilbeat.org,Local News Outlet,Hawaii,Center,TRUE
+Columbia Basin Herald,columbiabasinherald.com,Local News Outlet,Washington,Center,TRUE
+The Columbian,columbian.com,Local News Outlet,Washington,Center,TRUE
+El Nuevo Dia,elnuevodia.com,Local News Outlet,Puerto Rico,Center,TRUE
+New Orleans Fox 8 Live,fox8live.com,Local Broadcast News,Louisiana,Center,TRUE
+WNYC Gothamist,gothamist.com,Local Broadcast News,New York,Center,TRUE
+Grand Forks Herald,grandforksherald.com,Local News Outlet,North Dakota,Center,TRUE
+In These Times,inthesetimes.com,Local News Outlet,Unspecified,Center,TRUE
+Iowa Starting Line,iowastartingline.com,Local News Outlet,Unspecified,Center,TRUE
+KMXT,kmxt.org,Local Broadcast News,Alaska,Center,TRUE
+Know Pages,knoxpages.com,Local News Outlet,Ohio,Center,TRUE
+KAUF,kuaf.com,Local Broadcast News,Arkansas,Center,TRUE
+Little Green Footballs,littlegreenfootballs.com,Local News Outlet,Unspecified,Left,TRUE
+MLive.com,mlive.com,Local News Outlet,Michigan,Center,TRUE
+Mondoweiss,mondoweiss.net,Local News Outlet,Unspecified,Center,TRUE
+Must Read Alaska,mustreadalaska.com,Local News Outlet,Alaska,Center,TRUE
+Newsmax,newsmax.com,Cable TV News,Unspecified,Right,TRUE
+Pittsburgh Post-Gazette,post-gazette.com,Local News Outlet,Pennsylvania,Center,TRUE
+Portland Press Herald,pressherald.com,Local News Outlet,Oregon,Center,TRUE
+Shreveport Times,shreveporttimes.com,Local News Outlet,Louisiana,Center,TRUE
+Smith Center for International Sustainable Agriculture,smithcenter.tennessee.edu,Local News Outlet,Tennessee,Center,TRUE
+Austin American-Statesman,statesman.com,Local News Outlet,Texas,Center,TRUE
+Stars and Stripes,stripes.com,Local News Outlet,Unspecified,Center,TRUE
+The Tennessean,tennessean.com,Local News Outlet,Tennessee,Center,TRUE
+UnivarsalHub ,universalhub.com,Local News Outlet,Massachusetts,Center,TRUE
+Washington Post,washingtonpost.com,National News Outlet,Unspecified,Center,TRUE
+WLOX,wlox.com,Local Broadcast News,Mississippi,Center,TRUE
+WWNO,wwno.org,Local Broadcast News,Louisiana,Center,TRUE
+Yes! Magazine,yesmagazine.org,Web Publication,Unspecified,Center,TRUE
+Billboard,billboard.com,Web Publication,Unspecified,Center,TRUE
+Lancaster Online,lancasteronline.com,Local News Outlet,Pennsylvania,Center,TRUE
+Des Moines Register,desmoinesregister.com,Local News Outlet,Iowa,Center,TRUE
+DTN Progressive Farmer,dtnpf.com,Local News Outlet,Minnesota,Center,TRUE
+Fayetteville Observer ,fayobserver.com,Local News Outlet,Unspecified,Center,TRUE
+The Dispatch,thedispatch.com,Opinion Journal,Unspecified,Center Right,TRUE
+VT Digger,vtdigger.org,Opinion Journal,Vermont,Center,TRUE
+Jesuit Refugee Service,jrs.net,Advocacy Group,Unspecified,Center,TRUE
+Mid-Michigan Now,midmichigannow.com,Local News Outlet,Michigan,Center,TRUE
+Rapid City Journal,rapidcityjournal.com,Local News Outlet,South Dakota,Center,TRUE
+South Dakota Standard,sdstandardnow.com,Local News Outlet,South Dakota,Center,TRUE
+The State News,statenews.com,Local News Outlet,Michigan,Center,TRUE
+Transylvania Times,transylvaniatimes.com,Local News Outlet,North Carolina,Center,TRUE
+Union-Bulletin,union-bulletin.com,Local News Outlet,Washington,Center,TRUE
+Alabama Reflector,alabamareflector.com,Local News Outlet,Alabama,Center,TRUE
+Boston Herald,bostonherald.com,Local News Outlet,Massachusetts,Center,TRUE
+The Chronicle,chronline.com,Local News Outlet,Washington,Center,TRUE
+CT Insider,ctinsider.com,Local News Outlet,Connecticut,Center,TRUE
+CT Post,ctpost.com,Local News Outlet,Connecticut,Center,TRUE
+Door County Pulse,doorcountypulse.com,Local News Outlet,Wisconsin,Center,TRUE
+Deparment Of Education,ed.gov,Other,Unspecified,Center,TRUE
+San ANtonio Express-News,expressnews.com,Local News Outlet,Texas,Center,TRUE
+Houston Chronicle,houstonchronicle.com,Local News Outlet,Texas,Center,TRUE
+Iowa Capital Dispatch,iowacapitaldispatch.com,Local News Outlet,Iowa,Center,TRUE
+Kansas City Star,kansascity.com,Local News Outlet,Kansas,Center,TRUE
+Kansas Reflector,kansasreflector.com,Local News Outlet,Kansas,Center,TRUE
+KARK,kark.com,Local Broadcast News,Arkansas,Center,TRUE
+Washington City Paper,washingtoncitypaper.com,Local News Outlet,District of Columbia,Left,TRUE
+KBHB Radio,kbhbradio.com,Local Broadcast News,South Dakota,Center,TRUE
+Louisianna Illuminator,lailluminator.com,Local News Outlet,Louisiana,Center,TRUE
+Manisteee News Advocate,manisteenews.com,Local News Outlet,Michigan,Center,TRUE
+MassLive,masslive.com,Local News Outlet,Massachusetts,Center,TRUE
+Huron Daily Tribune,michigansthumb.com,Local News Outlet,Michigan,Center,TRUE
+Montgomery Advertiser,montgomeryadvertiser.com,Local News Outlet,Alabama,Center,TRUE
+Midland Reporter-Telegram,mrt.com,Local News Outlet,Texas,Center,TRUE
+New Haven Register,nhregister.com,Local News Outlet,Connecticut,Center,TRUE
+Midland Daily News,ourmidland.com,Local News Outlet,Michigan,Center,TRUE
+Santa Fe New Mexican,santafenewmexican.com,Local News Outlet,New Mexico,Center,TRUE
+South Dakota Public Broadcasting,sdpb.org,Local Broadcast News,South Dakota,Center,TRUE
+Spokesman-Review,spokesman.com,Local News Outlet,Washington,Center,TRUE
+Stamford Advocate,stamfordadvocate.com,Local News Outlet,Connecticut,Center,TRUE
+Tennessee Lookout,tennesseelookout.com,Local News Outlet,Tennessee,Center,TRUE
+The Reflector,thereflector.com,Local News Outlet,Washington,Center,TRUE
+Arizona Daily Star,tucson.com,Local News Outlet,Arizona,Center,TRUE
+Virginia Mercury,virginiamercury.com,Local News Outlet,Virginia,Center,TRUE
+WGBH Boston,wgbh.org,Local News Outlet,Massachusetts,Center,TRUE
+Albuquerque Journal,abqjournal.com,Local News Outlet,New Mexico,Center,TRUE
+American Foreign Service,afsa.org,Opinion Journal,Unspecified,Center,TRUE
+AL.com,al.com,Local News Outlet,Alabama,Center,TRUE
+Democracy Now!,democracynow.org,Web Publication,Unspecified,Left,TRUE
+Forbes,forbes.com,National News Outlet,Unspecified,Center,TRUE
+International Business Times,ibtimes.com,National News Outlet,Unspecified,Center,TRUE
+Market  Watch,marketwatch.com,National News Outlet,Unspecified,Center,TRUE
+Newsweek,newsweek.com,National News Outlet,Unspecified,Center Right,TRUE
+Pittsburgh City Paper,pghcitypaper.com,Local News Outlet,Pennsylvania,Center,TRUE
+Raw Story,rawstory.com,Web Publication,Unspecified,Left,TRUE
+Seatle Times,seattletimes.com,Local News Outlet,Washington,Center,TRUE
+The Street,thestreet.com,Web Publication,Unspecified,Center,TRUE
+TruthDig,truthdig.com,Web Publication,Unspecified,Left,TRUE
+Boise State Public Radio,boisestatepublicradio.org,Local Broadcast News,Idaho,Center,TRUE
+Herald Tribune,heraldtribune.com,Local News Outlet,Florida,Center,TRUE
+Idaho Statesman,idahostatesman.com,Local News Outlet,Idaho,Center,TRUE
+Insider NJ,insidernj.com,Local News Outlet,New Jersey,Center,TRUE
+Las Vegas Sun,lasvegassun.com,Local News Outlet,Nevada,Center,TRUE
+Miami Herald,miamiherald.com,Local News Outlet,Florida,Center,TRUE
+Nevada Appeal,nevadaappeal.com,Local News Outlet,Nevada,Center,TRUE
+News 12 Long Island,news12.com,Local Broadcast News,New York,Center,TRUE
+Bergen Record,northjersey.com,Local News Outlet,New Jersey,Center,TRUE
+Pahrump Valley Times,pvtimes.com,Local News Outlet,Nevada,Center,TRUE
+ABC 11,abc11.com,Local Broadcast News,North Carolina,Center,TRUE
+ABC 17 News,abc17news.com,Local Broadcast News,Missouri,Center,TRUE
+ABC Columbia,abccolumbia.com,Local Broadcast News,South Carolina,Center,TRUE
+Ag Week,agweek.com,Web Publication,Unspecified,Center,TRUE
+Bitterroot Star,bitterrootstar.com,Local News Outlet,Montana,Center,TRUE
+The Black Chronicle,blackchronicle.com,Local News Outlet,Oklahoma,Center,TRUE
+Bladen Journal,bladenjournal.com,Local News Outlet,North Carolina,Center,TRUE
+Biblical Recorder,brnow.org,Web Publication,Unspecified,Center,TRUE
+Butler Country Times-Gazette,butlercountytimesgazette.com,Local News Outlet,Kansas,Center,TRUE
+Carolina Coast Online,carolinacoastonline.com,Local News Outlet,North Carolina,Center,TRUE
+Charleston Mercury,charlestonmercury.com,Local News Outlet,South Carolina,Center,TRUE
+Salt Lake City Weekly,cityweekly.net,Local News Outlet,Utah,Center,TRUE
+The Corrales Comment,corralescomment.com,Local News Outlet,New Mexico,Center,TRUE
+Daily Tar Heel,dailytarheel.com,Local News Outlet,North Carolina,Center,TRUE
+Devil''s Lake Daily Journal,devilslakejournal.com,Local News Outlet,North Dakota,Center,TRUE
+Flathead Beacon,flatheadbeacon.com,Local News Outlet,Montana,Center,TRUE
+Fox 13 News,fox13now.com,Local News Outlet,Utah,Center,TRUE
+Fox Carolina,foxcarolina.com,Local News Outlet,South Carolina,Center,TRUE
+Great Bend Tribune,gbtribune.com,Local News Outlet,Kansas,Center,TRUE
+Gephardt Daily,gephardtdaily.com,Local News Outlet,Utah,Center,TRUE
+InForum,inforum.com,Local News Outlet,North Dakota,Center,TRUE
+The Insider,insiderutah.com,Local News Outlet,Utah,Center,TRUE
+Iola Register,iolaregister.com,Local News Outlet,Kansas,Center,TRUE
+The Jamestown Sun,jamestownsun.com,Local News Outlet,North Dakota,Center,TRUE
+The Journal Record,journalrecord.com,Local News Outlet,Oklahoma,Center,TRUE
+KBZK Bozeman,kbzk.com,Local Broadcast News,Montana,Center,TRUE
+KFDI,kfdi.com,Local Broadcast News,Kansas,Center,TRUE
+KFGO,kfgo.com,Local Broadcast News,North Dakota,Center,TRUE
+KJRH,kjrh.com,Local Broadcast News,Oklahoma,Center,TRUE
+KMBC,kmbc.com,Local Broadcast News,Missouri,Center,TRUE
+Know News Radio,knoxradio.com,Local Broadcast News,North Dakota,Center,TRUE
+KOAT,koat.com,Local Broadcast News,New Mexico,Center,TRUE
+KOCO,koco.com,Local Broadcast News,Oklahoma,Center,TRUE
+KPAX,kpax.com,Local Broadcast News,Montana,Center,TRUE
+KSAL,ksal.com,Local Broadcast News,Kansas,Center,TRUE
+KSDK,ksdk.com,Local Broadcast News,Missouri,Center,TRUE
+KSJB Radio,ksjbam.com,Local Broadcast News,North Dakota,Center,TRUE
+KTTS,ktts.com,Local Broadcast News,Missouri,Center,TRUE
+KVRR,kvrr.com,Local Broadcast News,North Dakota,Center,TRUE
+KXLF,kxlf.com,Local Broadcast News,Montana,Center,TRUE
+Mid-Utah Radio,midutahradio.com,Local Broadcast News,Utah,Center,TRUE
+Winthrop University Student Newspaper,mytjnow.com,Local News Outlet,South Carolina,Center,TRUE
+NDSY Spectrum,ndsuspectrum.com,Local News Outlet,North Dakota,Center,TRUE
+NonDoc,nondoc.com,Local News Outlet,Oklahoma,Center,TRUE
+Nortwest Arkansas Democrat,nwaonline.com,Local News Outlet,Arkansas,Center,TRUE
+Park Record,parkrecord.com,Local News Outlet,Utah,Center,TRUE
+Providence Business News,pbn.com,Local News Outlet,Rhode Island,Center,TRUE
+The Roundup - Sidney,roundupweb.com,Local News Outlet,Montana,Center,TRUE
+St Louis Chinese American News,scanews.com,Local News Outlet,Missouri,Center,TRUE
+Sheridan Media,sheridanmedia.com,Local News Outlet,Wyoming,Center,TRUE
+Salt Lake Tribune,sltrib.com,Local News Outlet,Utah,Center,TRUE
+Spectrum News,spectrumlocalnews.com,Local News Outlet,Unspecified,Center,TRUE
+Student Life,studlife.com,Local News Outlet,Missouri,Center,TRUE
+Telemundo  Utah,telemundoutah.com,Local News Outlet,Utah,Center,TRUE
+The Dialogue,thedialog.org,Local News Outlet,Delaware,Center,TRUE
+Dickenson Press,thedickinsonpress.com,Local News Outlet,North Dakota,Center,TRUE
+The Register,theregister.com,Web Publication,Unspecified,Center,TRUE
+The Sunflower,thesunflower.com,Local News Outlet,Kansas,Center,TRUE
+The  Times and Democrat,thetandd.com,Local News Outlet,Missouri,Center,TRUE
+Tulsa Today,tulsatoday.com,Local News Outlet,Oklahoma,Center,TRUE
+UD Review,udreview.com,Local News Outlet,Delaware,Center,TRUE
+WBT Radio,wbt.com,Local Broadcast News,North Carolina,Center,TRUE
+WCNC,wcnc.com,Local Broadcast News,North Carolina,Center,TRUE
+WLTX,wltx.com,Local Broadcast News,South Carolina,Center,TRUE
+WRAL,wral.com,Local Broadcast News,North Carolina,Center,TRUE
+WWAY TV3,wwaytv3.com,Local Broadcast News,North Carolina,Center,TRUE
+WXII TV 12,wxii12.com,Local Broadcast News,North Carolina,Center,TRUE
+WYFF TV 4,wyff4.com,Local Broadcast News,South Carolina,Center,TRUE
+Windy City Times,windycitytimes.com,Local News Outlet,Arizona,Left,TRUE
+27 East,27east.com,Local News Outlet,New York,Center,TRUE
+AFGE,afge.org,Other,Unspecified,Center,TRUE
+Alberni Valley News,albernivalleynews.com,Local News Outlet,Unspecified,Center,TRUE
+American Free Press,americanfreepress.net,Web Publication,Unspecified,Right,TRUE
+Axios,axios.com,Web Publication,Unspecified,Center,TRUE
+Bakersfield.com,bakersfield.com,Local News Outlet,California,Center,TRUE
+Bozeman Daily Chronicle,bozemandailychronicle.com,Local News Outlet,Montana,Center,TRUE
+Bradford Today,bradfordtoday.ca,Local News Outlet,Unspecified,Center,TRUE
+Brookings,brookings.edu,Local News Outlet,Unspecified,Center Left,TRUE
+Bucks County Herald,buckscountyherald.com,Local News Outlet,Pennsylvania,Center,TRUE
+Buffalo News,buffalonews.com,Local News Outlet,New York,Center,TRUE
+Business World,bworldonline.com,Web Publication,Unspecified,Center,TRUE
+Capital Gazette,capitalgazette.com,Local News Outlet,Maryland,Center,TRUE
+Cap Times,captimes.com,Local News Outlet,Wisconsin,Center,TRUE
+CBS 17,cbs17.com,Local News Outlet,North Carolina,Center,TRUE
+Center Times,centredaily.com,Local News Outlet,Pennsylvania,Center,TRUE
+Center for Global Development,cgdev.org,Web Publication,Unspecified,Center,TRUE
+Charlotte Observer,charlotteobserver.com,Local News Outlet,North Carolina,Center,TRUE
+Christian Chronicle,christianchronicle.org,Web Publication,Unspecified,Center,TRUE
+Tokeka Capital-Journal,cjonline.com,Local News Outlet,Kansas,Center,TRUE
+Columbia Missouriuan,columbiamissourian.com,Local News Outlet,Missouri,Center,TRUE
+Cornell Sun,cornellsun.com,Local News Outlet,New York,Center,TRUE
+Courier Journal,courier-journal.com,Local News Outlet,Kentucky,Center,TRUE
+Dayton Daily News,daytondailynews.com,Local News Outlet,Ohio,Center,TRUE
+Devex,devex.com,Web Publication,Unspecified,Center,TRUE
+Dissent,dissentmagazine.org,Opinion Journal,Unspecified,Left,TRUE
+The Evanstonian,evanstonian.net,Local News Outlet,Illinois,Center,TRUE
+Fredrick News Post,fredericknewspost.com,Local News Outlet,Massachusetts,Center,TRUE
+Idaho Press,idahopress.com,Local News Outlet,Idaho,Center,TRUE
+Institute  of Food Technologists,ift.org,Other,Unspecified,Center,TRUE
+Indy Week,indyweek.com,Local News Outlet,Indiana,Center,TRUE
+Khaama Press,khaama.com,Local News Outlet,Unspecified,Center,TRUE
+Los Alamo Daily Post,ladailypost.com,Local News Outlet,New Mexico,Center,TRUE
+Lancaster Farming,lancasterfarming.com,Local News Outlet,Pennsylvania,Center,TRUE
+Live 5 News Charleston,live5news.com,Local Broadcast News,South Carolina,Center,TRUE
+Live Science,livescience.com,Web Publication,Unspecified,Center,TRUE
+Lawrence Journal-World,ljworld.com,Local News Outlet,Kansas,Center,TRUE
+Wisconsin State Journal,madison.com,Local News Outlet,Wisconsin,Center,TRUE
+Marco Eagle,marconews.com,Local News Outlet,Florida,Center,TRUE
+Marshall Parthenon,marshallparthenon.com,Local News Outlet,West Virginia,Center,TRUE
+Missouri Lawyers Media ,molawyersmedia.com,Local News Outlet,Missouri,Center,TRUE
+Moring Sun,morningsun.net,Local News Outlet,Kansas,Center,TRUE
+MSN,msn.com,Web Publication,Unspecified,Center,TRUE
+MyHorry News,myhorrynews.com,Web Publication,South Carolina,Center,TRUE
+News Gazette,news-gazette.com,Local News Outlet,Illinois,Center,TRUE
+Raleigh News Observer ,newsobserver.com,Local News Outlet,North Carolina,Center,TRUE
+Neiman Lab,niemanlab.org,Other,Unspecified,Center,TRUE
+NOLA.com,nola.com,Local News Outlet,Louisiana,Center,TRUE
+Rome News-Tribune,northwestgeorgianews.com,Local News Outlet,Georgia,Center,TRUE
+PennLive,pennlive.com,Local News Outlet,Pennsylvania,Center,TRUE
+Pioneer Tribune,pioneertribune.com,Local News Outlet,Michigan,Center,TRUE
+Politico,politico.com,Web Publication,Unspecified,Center,TRUE
+Portland Tribune,portlandtribune.com,Local News Outlet,Oregon,Center,TRUE
+Post Bulletin,postbulletin.com,Local News Outlet,New Mexico,Center,TRUE
+Post Crescent,postcrescent.com,Local News Outlet,Wisconsin,Center,TRUE
+Moline Dispatch Argus,qconline.com,Local News Outlet,Iowa,Center,TRUE
+Red Bluff Daily News,redbluffdailynews.com,Local News Outlet,California,Center,TRUE
+Religion News,religionnews.com,Other,Unspecified,Center,TRUE
+Republican Eagle,republicaneagle.com,Local News Outlet,Minnesota,Center,TRUE
+Rhina Times,rhinotimes.com,Local News Outlet,North Carolina,Center,TRUE
+Salem News,salemnews.com,Local News Outlet,Massachusetts,Center,TRUE
+Sky News,sky.com,Other,Unspecified,Center,TRUE
+Stat News,statnews.com,Web Publication,Unspecified,Center,TRUE
+St. Louis American,stlamerican.com,Local News Outlet,Missouri,Center,TRUE
+Substack,substack.com,Other,Unspecified,Center,TRUE
+Telegraph Herald,telegraphherald.com,Local News Outlet,Iowa,Center,TRUE
+The Advocate,theadvocate.com,Local News Outlet,Louisiana,Center,TRUE
+The Hill,thehill.com,Web Publication,Unspecified,Right,TRUE
+The Intermountain,theintermountain.com,Local News Outlet,West Virginia,Center,TRUE
+The New Humanitarian,thenewhumanitarian.org,Local News Outlet,Unspecified,Center,TRUE
+The Pilot,thepilot.com,Local News Outlet,North Carolina,Center,TRUE
+The Santa Clara,thesantaclara.org,Local News Outlet,California,Center,TRUE
+Times Union,timesunion.com,Local News Outlet,New York,Center,TRUE
+Toledo Blade,toledoblade.com,Local News Outlet,Ohio,Center,TRUE
+Casper Star-Tribune,trib.com,Local News Outlet,Wyoming,Center,TRUE
+Upstate Today,upstatetoday.com,Local News Outlet,South Carolina,Center,TRUE
+Washburn Review,washburnreview.org,Local News Outlet,Kansas,Center,TRUE
+WBIR  Tennessee,wbir.com,Local News Outlet,Tennessee,Center,TRUE
+WCCB Charlotte,wccbcharlotte.com,Local Broadcast News,North Carolina,Center,TRUE
+Western Ag Reporter,westernagreporter.com,Web Publication,Unspecified,Center,TRUE
+WFMY News,wfmynews2.com,Local News Outlet,North Carolina,Center,TRUE
+Winnipeg Free Press,winnipegfreepress.com,Local News Outlet,Unspecified,Center,TRUE
+mrcNewsbusters,newsbusters.org,Web Publication,Unspecified,Center,TRUE
+The Guardian,theguardian.com,Local News Outlet,UK,Center Left,TRUE
+The New Yorker,newyorker.com,Opinion Journal,Unspecified,Center Left,TRUE
+The Bulwark,thebulwark.com,Opinion Journal,Unspecified,Center,TRUE
+Altoona Mirror,altoonamirror.com,Local News Outlet,Pennsylvania,Center,TRUE
+AOL.COM,aol.com,Web Publication,Unspecified,Center,TRUE
+Bangor Daily News,bangordailynews.com,Local News Outlet,Maine,Center,TRUE
+Civic Media,civicmedia.us,Local News Outlet,Wisconsin,Right,TRUE
+Boulder Daily Camera,dailycamera.com,Local News Outlet,Colorado,Center,TRUE
+Daily Democrat,dailydemocrat.com,Local News Outlet,California,Center,TRUE
+Daily Herald ,dailyherald.com,Local News Outlet,Illinois,Center,TRUE
+Deseret News,deseret.com,Local News Outlet,Utah,Center,TRUE
+Duke Chronicle,dukechronicle.com,Local News Outlet,North Carolina,Center,TRUE
+Geneva Solutions,genevasolutions.news,Local News Outlet,Unspecified,Center,TRUE
+Illinois Times,illinoistimes.com,Local News Outlet,Unspecified,Center,TRUE
+Journal and Courier,jconline.com,Local News Outlet,Indiana,Center,TRUE
+Knox News,knoxnews.com,Local News Outlet,Tennessee,Center,TRUE
+The Lawrence Times,lawrencekstimes.com,Local News Outlet,Kansas,Center,TRUE
+Loretto Community,lorettocommunity.org,Local News Outlet,Kentucky,Center,TRUE
+Marketplace,marketplace.org,Web Publication,Unspecified,Center,TRUE
+The Mining Journal,miningjournal.net,Local News Outlet,Minnesota,Center,TRUE
+The News-Press,news-press.com,Local News Outlet,Florida,Center,TRUE
+Newsbreak,newsbreak.com,Web Publication,Unspecified,Center,TRUE
+NorthCentralPA,northcentralpa.com,Local News Outlet,Pennsylvania,Center,TRUE
+Oxford Free Press,oxfreepress.com,Local News Outlet,Ohio,Center,TRUE
+Petaluma Argus-Courier,petaluma360.com,Local News Outlet,California,Center,TRUE
+GEOPolitics,politicsgeo.com,Web Publication,Unspecified,Center,TRUE
+The Press Democrat,pressdemocrat.com,Local News Outlet,California,Center,TRUE
+Rogue Valley Times,rv-times.com,Local News Outlet,Oregon,Center,TRUE
+The State Journal Register,sj-r.com,Local News Outlet,Illinois,Center,TRUE
+The Diplomat,thediplomat.com,Web Publication,Unspecified,Center,TRUE
+The Trentonian,trentonian.com,Local News Outlet,Pennsylvania,Center,TRUE
+Undark,undark.org,Web Publication,Unspecified,Center,TRUE
+WEAU,weau.com,Local Broadcast News,Wisconsin,Center,TRUE
+285 South,285south.com,Local News Outlet,Georgia,Center,TRUE
+Bend Bulletin,bendbulletin.com,Local News Outlet,Oregon,Center,TRUE
+Billings Gazette,billingsgazette.com,Local News Outlet,Montana,Center,TRUE
+Council on Foreign Relations,cfr.org,Opinion Journal,Unspecified,Center,TRUE
+Daily Press,dailypress.com,Local News Outlet,Virginia,Center,TRUE
+E! News,eonline.com,Web Publication,Unspecified,Center,TRUE
+FOX4KC,fox4kc.com,Local Broadcast News,Missouri,Center,TRUE
+Google,google.com,Web Publication,Unspecified,Center,TRUE
+Hastings Tribune,hastingstribune.com,Local News Outlet,Nebraska,Center,TRUE
+Herald Dispatch,herald-dispatch.com,Local News Outlet,West Virginia,Center,TRUE
+Journal Gazette,journalgazette.net,Local News Outlet,Indiana,Center,TRUE
+Winston-Salem Journal,journalnow.com,Local News Outlet,North Carolina,Center,TRUE
+NBC Chicago,nbcchicago.com,Local News Outlet,Illinois,Center,TRUE
+Fairbanks Newsminer,newsminer.com,Local News Outlet,Alaska,Center,TRUE
+Paulding  Press,progressnewspaper.org,Local News Outlet,Ohio,Center,TRUE
+Providence Journal,providencejournal.com,Local News Outlet,Rhode Island,Center,TRUE
+Quad-City Times,qctimes.com,Local News Outlet,Iowa,Center,TRUE
+Brentwook Press,thepress.net,Local News Outlet,California,Center,TRUE
+Sylva Herald,thesylvaherald.com,Local News Outlet,North Carolina,Center,TRUE
+Tom Dispatch,tomdispatch.com,Web Publication,Unspecified,Left,TRUE
+Manchester Union Leader,unionleader.com,Local News Outlet,New Hampshire,Center,TRUE
+WIS TV,wistv.com,Local Broadcast News,South Carolina,Center,TRUE
+WBMF,wmbfnews.com,Local Broadcast News,South Carolina,Center,TRUE
+WPTF,wptf.com,Local Broadcast News,North Carolina,Center,TRUE
+Wall Street Journal,wsj.com,National News Outlet,Unspecified,Center Right,TRUE
+WUWM,wuwm.com,Local Broadcast News,Wisconsin,Center,TRUE
+Charelston Gazette,wvgazettemail.com,Local News Outlet,West Virginia,Center,TRUE
+WV News,wvnews.com,Local News Outlet,West Virginia,Center,TRUE
+Wyoming Tribune Eagle,wyomingnews.com,Local News Outlet,Wyoming,Center,TRUE
+Yakima Herald,yakimaherald.com,Local News Outlet,Washington,Center,TRUE
+The Island News,yourislandnews.com,Local News Outlet,South Carolina,Center,TRUE
+You Tube,youtube.com,Web Publication,Unspecified,Center,TRUE
+Ann Arbor Independent,a2independent.com,Local News Outlet,Michigan,Center,TRUE
+Ag Web,agweb.com,Web Publication,Unspecified,Center,TRUE
+CSIS,csis.org,Opinion Journal,Unspecified,Center,TRUE
+The Forward,forward.com,Opinion Journal,Unspecified,Left,TRUE
+Sun Journal,sunjournal.com,Local News Outlet,Maine,Center,TRUE
+Baltimore Banner,thebaltimorebanner.com,Local News Outlet,Maryland,Center,TRUE
+Tomkins Weekly,tompkinsweekly.com,Local News Outlet,New York,Center,TRUE
+UC Santa Barbara,ucsb.edu,Other,California,Center,TRUE
+US News,usnews.com,Web Publication,Unspecified,Center Right,TRUE
+Waterloo-Cedar Falls Courier,wcfcourier.com,Local News Outlet,Iowa,Center,TRUE
+ABC,go.com,Web Publication,Unspecified,Center,TRUE
+Ars Tecnica,arstechnica.com,Web Publication,Unspecified,Center,TRUE
+EOS,eos.org,Web Publication,Unspecified,Center,TRUE
+Good Times Santa Cruz,goodtimes.sc,Local News Outlet,California,Center,TRUE
+Sprinfield News-Leader,news-leader.com,Local News Outlet,Missouri,Center,TRUE
+Small Wars Journal,smallwarsjournal.com,Web Publication,Unspecified,Center,TRUE
+Fox Business,foxbusiness.com,Web Publication,Unspecified,Right,TRUE
+American Thinker,americanthinker.com,Opinion Journal,Unspecified,Right,TRUE
+Chappelborro,chapelboro.com,Web Publication,North Carolina,Center,TRUE
+Durango Herald,durangoherald.com,Local News Outlet,Colorado,Center,TRUE
+East Bay Times,eastbaytimes.com,Local News Outlet,California,Center,TRUE
+Foreign Affairs,foreignaffairs.com,Local News Outlet,Unspecified,Center Left,TRUE
+Colorado Springs Gazette,gazette.com,Local News Outlet,Colorado,Center,TRUE
+Infowars,infowars.com,Web Publication,Unspecified,Right,TRUE
+Inside Nova,insidenova.com,Local News Outlet,Virginia,Center,TRUE
+Medium,medium.com,Web Publication,Unspecified,Center,TRUE
+My Nortwest Seatle ,mynorthwest.com,Local News Outlet,Unspecified,Center,TRUE
+NBC Bay Area,nbcbayarea.com,Local Broadcast News,Unspecified,Center,TRUE
+NBC 6 South Florida,nbcmiami.com,Local Broadcast News,Florida,Center,TRUE
+NBC 7 San Diago,nbcsandiego.com,Local Broadcast News,California,Center,TRUE
+NBC 4 Jacksonville,news4jax.com,Local Broadcast News,Florida,Center,TRUE
+News Center Maine,newscentermaine.com,Local Broadcast News,Maine,Center,TRUE
+Nonprofit Quarterly,nonprofitquarterly.org,Web Publication,Unspecified,Center,TRUE
+Radio Iowa,radioiowa.com,Local Broadcast News,Iowa,Center,TRUE
+Reason,reason.com,Opinion Journal,Unspecified,Right,TRUE
+Las Vegas Review-Journal,reviewjournal.com,Local News Outlet,Nevada,Center,TRUE
+WCTB Boston,wcvb.com,Local Broadcast News,Massachusetts,Center,TRUE
+WGRZ Buffalo,wgrz.com,Local Broadcast News,New York,Center,TRUE
+WHAS Louisville,whas11.com,Local Broadcast News,Kentucky,Center,TRUE
+WKYC Cleveland,wkyc.com,Local Broadcast News,Ohio,Center,TRUE
+WMUR New Hampshire,wmur.com,Local Broadcast News,New Hampshire,Center,TRUE
+WUSA 9 DC,wusa9.com,Local Broadcast News,District of Columbia,Center,TRUE
+The  Christian Post,christianpost.com,Web Publication,Unspecified,Right,TRUE
+Click on Houston,click2houston.com,Local Broadcast News,Texas,Center,TRUE
+Click on Detroit,clickondetroit.com,Local Broadcast News,Michigan,Center,TRUE
+Click on Orlando,clickorlando.com,Local Broadcast News,Florida,Center,TRUE
+The Globe - Worthington,dglobe.com,Local News Outlet,Minnesota,Center,TRUE
+Federal News Network,federalnewsnetwork.com,Web Publication,Unspecified,Center,TRUE
+Fedscoop,fedscoop.com,Web Publication,Unspecified,Center,TRUE
+iNews,inews.co.uk,National News Outlet,Unspecified,Center Left,TRUE
+Northern Virgina Magazine,northernvirginiamag.com,Local News Outlet,Virginia,Center,TRUE
+Sonoma Index-Tribune,sonomanews.com,Local News Outlet,California,Center,TRUE
+The Globe and Mail,theglobeandmail.com,National News Outlet,Unspecified,Center Right,TRUE
+The Republic News,therepublic.com,Local News Outlet,Indiana,Center,TRUE
+Toronto Star,thestar.com,Local News Outlet,Unspecified,Center Left,TRUE
+The Western Journal,westernjournal.com,Web Publication,Unspecified,Right,TRUE
+"Smart Bitches, Trashy Books",smartbitchestrashybooks.com,Web Publication,Unspecified,Center,TRUE
+The 19th,19thnews.org,Web Publication,Unspecified,Left,TRUE
+404 Media,404media.co,Web Publication,Unspecified,Left,TRUE
+Election Protection,866ourvote.org,Advocacy Group,Unspecified,Left,TRUE
+ACLU,aclu.org,Advocacy Group,Unspecified,Left,TRUE
+America 2.0,america2.news,Web Publication,Unspecified,Left,TRUE
+Anil Dash,anildash.com,Web Publication,Unspecified,Left,TRUE
+The Atavist,atavist.com,Web Publication,Unspecified,Center Left,TRUE
+Blood in the Machine,bloodinthemachine.com,Web Publication,Unspecified,Center Left,TRUE
+Brittish Medical Journal,bmj.com,Web Publication,Unspecified,Unspecified,TRUE
+Bolts,boltsmag.org,Web Publication,Unspecified,Left,TRUE
+Brennan Center for Justice,brennancenter.org,Advocacy Group,Unspecified,Center Left,TRUE
+CalMatters,calmatters.org,Web Publication,California,Center Left,TRUE
+Citation Needed,citationneeded.news,Web Publication,Unspecified,Center,TRUE
+Citizens for Responsibility and Ethics,citizensforethics.org,Web Publication,Unspecified,Center,TRUE
+Collaborative Journalism ,collaborativejournalism.org,Web Publication,Unspecified,Left,TRUE
+Dan Sinker,dansinker.com,Web Publication,Unspecified,Center,TRUE
+Defector,defector.com,Web Publication,Unspecified,Left,TRUE
+Democracy Docket,democracydocket.com,Web Publication,Unspecified,Center Left,TRUE
+Duke University,duke.edu,Web Publication,North Carolina,Center,TRUE
+The Editorial Board,editorialboard.com,Web Publication,Unspecified,Left,TRUE
+Electornic Frontier Foundation,eff.org,Web Publication,Unspecified,Center,TRUE
+Empty Wheel,emptywheel.net,Web Publication,Unspecified,Left,TRUE
+End of Term Web Archive,eotarchive.org,Web Publication,Unspecified,Left,TRUE
+Esquire,esquire.com,Web Publication,Unspecified,Center Left,TRUE
+Fix the News,fixthenews.com,Web Publication,Unspecified,Left,TRUE
+Forever Wars,forever-wars.com,Web Publication,Unspecified,Left,TRUE
+Feedom of the Press Foundation,freedom.press,Advocacy Group,Unspecified,Center Left,TRUE
+Detroit Free Press,freep.com,Local News Outlet,Michigan,Center,TRUE
+Federal Trade Commission,ftc.gov,Other,Unspecified,Left,TRUE
+Financial Times,ft.com,National News Outlet,Unspecified,Center Right,TRUE
+Gallup,gallup.com,Other,Unspecified,Center,TRUE
+Greg Palast,gregpalast.com,Web Publication,Unspecified,Left,TRUE
+Haaretz,haaretz.com,Web Publication,Unspecified,Left,TRUE
+Hamilton Nolan,hamiltonnolan.com,Web Publication,Unspecified,Left,TRUE
+Harvard University,harvard.edu,Other,Massachusetts,Center,TRUE
+Hopium Chronicles,hopiumchronicles.com,Web Publication,Unspecified,Center Left,TRUE
+If You Can Keep It,ifyoucankeepit.org,Web Publication,Unspecified,Center Left,TRUE
+Important Context,importantcontext.news,Web Publication,Unspecified,Left,TRUE
+Inside Climate News,insideclimatenews.org,Web Publication,Unspecified,Center Left,TRUE
+Inside Higher Ed,insidehighered.com,Web Publication,Unspecified,Center Left,TRUE
+Institute for Policy Studies,ips-dc.org,Advocacy Group,Unspecified,Left,TRUE
+John Horgan,johnhorgan.org,Web Publication,Unspecified,Left,TRUE
+Kaiser Family Foundation,kff.org,Advocacy Group,Unspecified,Center Left,TRUE
+Lawfare,lawfaremedia.org,Web Publication,Unspecified,Center Left,TRUE
+The Lever,levernews.com,Web Publication,Unspecified,Left,TRUE
+Liberal Currents,liberalcurrents.com,Web Publication,Unspecified,Left,TRUE
+Mediaite,mediaite.com,Web Publication,Unspecified,Center Left,TRUE
+Media Matters,mediamatters.org,Web Publication,Unspecified,Left,TRUE
+MedPage Today,medpagetoday.com,Web Publication,Unspecified,Center,TRUE
+Michael Moore,michaelmoore.com,Web Publication,Unspecified,Left,TRUE
+Military Times,militarytimes.com,Web Publication,Unspecified,Center,TRUE
+Mississippi Free Press,mississippifreepress.org,Web Publication,Mississippi,Left,TRUE
+Nonmouth University,monmouth.edu,Other,New Jersey,Left,TRUE
+Minnesotta Public Radio,mprnews.org,Local News Outlet,Minnesota,Center,TRUE
+NASA,nasa.gov,Other,Unspecified,Center,TRUE
+NBC New York,nbcnewyork.com,Local Broadcast News,New York,Center,TRUE
+NOTUS,notus.org,Web Publication,Unspecified,Center Left,TRUE
+Oklahama Watch,oklahomawatch.org,Local News Outlet,Oklahoma,Center Left,TRUE
+Pew Research Center,pewresearch.org,Other,Unspecified,Center,TRUE
+Platformer,platformer.news,Web Publication,Unspecified,Left,TRUE
+Pluralistic - Cory Doctorow,pluralistic.net,Web Publication,Unspecified,Left,TRUE
+Popular Info - Judd Legum,popular.info,Web Publication,Unspecified,Center Left,TRUE
+Press Watch,presswatchers.org,Web Publication,Unspecified,Center Left,TRUE
+Project Censored,projectcensored.org,Web Publication,Unspecified,Left,TRUE
+Public Notice - Aaron Rupar,publicnotice.co,Web Publication,Unspecified,Left,TRUE
+Present Age - Parker Molloy,readtpa.com,Web Publication,Unspecified,Left,TRUE
+The Resistence Toolkit,resistance-toolkit.com,Web Publication,Unspecified,Left,TRUE
+Resolute Square,resolutesquare.com,Web Publication,Unspecified,Center,TRUE
+John Scalzi's Whatever,scalzi.com,Web Publication,Unspecified,Left,TRUE
+Science-Based Medicine,sciencebasedmedicine.org,Web Publication,Unspecified,Left,TRUE
+San Francisco Standard,sfstandard.com,Local News Outlet,California,Center Left,TRUE
+Stop the Presses - Mark Jacob,stopthepresses.news,Web Publication,Unspecified,Left,TRUE
+Tech Dirt,techdirt.com,Web Publication,Unspecified,Center Left,TRUE
+MIT Technology Review,technologyreview.com,Web Publication,Massachusetts,Unspecified,TRUE
+Teen Vogue,teenvogue.com,Web Publication,Unspecified,Center Left,TRUE
+Texas Observer,texasobserver.org,Web Publication,Texas,Left,TRUE
+Texas Tribune,texastribune.org,Web Publication,Texas,Center Left,TRUE
+Bulletin of Atomic Scientists,thebulletin.org,Web Publication,Unspecified,Center,TRUE
+Daily Beast,thedailybeast.com,Web Publication,Unspecified,Left,TRUE
+The Fix,thefix.media,Web Publication,Unspecified,Center,TRUE
+FrameLab - George Lakoff,theframelab.org,Web Publication,Unspecified,Left,TRUE
+The Index,theindex.media,Web Publication,Unspecified,Center,TRUE
+The Marshal Project,themarshallproject.org,Web Publication,Unspecified,Center,TRUE
+The Nerd Reich,thenerdreich.com,Web Publication,Unspecified,Left,TRUE
+The Onion,theonion.com,Web Publication,Unspecified,Center Left,TRUE
+The Reframe - A.R. Moxon,the-reframe.com,Web Publication,Unspecified,Left,TRUE
+This American Life,thisamericanlife.org,Other,Unspecified,Center Left,TRUE
+USA.gov,usa.gov,Other,Unspecified,Center,TRUE
+Vote Beat,votebeat.org,Web Publication,Unspecified,Center,TRUE
+Waging Nonviolence,wagingnonviolence.org,Web Publication,Unspecified,Left,TRUE
+Washington Monthly,washingtonmonthly.com,Web Publication,Unspecified,Center Left,TRUE
+Weekend Reading - Michael Podhorzer,weekendreading.net,Web Publication,Unspecified,Left,TRUE
+Weekly Sift - Doug Muder,weeklysift.com,Web Publication,Unspecified,Left,TRUE
+Welcome to Hell World,welcometohellworld.com,Web Publication,Unspecified,Left,TRUE
+Ed Zitron's Where's Your Ed At,wheresyoured.at,Web Publication,Unspecified,Left,TRUE
+Wikipedia,wikipedia.org,Web Publication,Unspecified,Center,TRUE
+WNYC ,wnycstudios.org,Local Broadcast News,New York,Center Left,TRUE
+Yale Climate Connections,yaleclimateconnections.org,Web Publication,Connecticut,Center,TRUE
+First Branch Forecast - Daniel Schuman,firstbranchforecast.substack.com,Web Publication,Unspecified,Center,TRUE
+Breaking the News - James Fallows,fallows.substack.com,Web Publication,Unspecified,Center,TRUE
+Friends of USAID,friendsofusaid.substack.com,Web Publication,Unspecified,Center,TRUE
+Letters From an American - Heather Cox Richardson,heathercoxrichardson.substack.com,Web Publication,Unspecified,Center,TRUE
+The Informed Alarmist,informedalarmist.substack.com,Web Publication,Unspecified,Center,TRUE
+Jill Filipovic,jill.substack.com,Web Publication,Unspecified,Center,TRUE
+Lucid - Ruth Ben-Ghiat,lucid.substack.com,Web Publication,Unspecified,Center,TRUE
+American Crisis - Margaret Sullivan,margaretsullivan.substack.com,Web Publication,Unspecified,Center,TRUE
+Unfinished Work - Rev Paul Benz the Younger,revpaulbenz.substack.com,Web Publication,Unspecified,Center,TRUE
+Thinking About...  Timothy Snyder,snyder.substack.com,Web Publication,Unspecified,Center,TRUE
+User Mag - Taylor Lorenz,taylorlorenz.substack.com,Web Publication,Unspecified,Center,TRUE
+The Connector - Micah Sifry,theconnector.substack.com,Web Publication,Unspecified,Center,TRUE
+The Last Mile with USAID,thelastmilewithusaid.substack.com,Web Publication,Unspecified,Center,TRUE

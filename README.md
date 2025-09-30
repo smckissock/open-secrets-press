@@ -12,3 +12,4 @@
 - Use d3.js / dc.js / crossfilter to render data
 - Allow filtering by date, publication, author, publication type, right/left and tag
 - Display publication, date, headline, author, photo, quote. Click to go to url 
+

@@ -1,0 +1,73 @@
+DROP TABLE IF EXISTS story;
+DROP TABLE IF EXISTS media_outlet;
+DROP TABLE IF EXISTS bias_rating;
+DROP TABLE IF EXISTS media_outlet_type;
+
+CREATE SEQUENCE IF NOT EXISTS seq_media_outlet_type START 1;
+CREATE OR REPLACE TABLE media_outlet_type (
+    id               INTEGER PRIMARY KEY DEFAULT nextval('seq_media_outlet_type'),
+    edit_time        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name             VARCHAR   NOT NULL,
+    media_cloud_code VARCHAR   NOT NULL
+);
+
+CREATE SEQUENCE IF NOT EXISTS seq_bias_rating START 1;
+CREATE OR REPLACE TABLE bias_rating (
+    id         INTEGER PRIMARY KEY DEFAULT nextval('seq_bias_rating'),
+    edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name       VARCHAR   NOT NULL,
+    ordering   INTEGER   NOT NULL
+);
+
+CREATE SEQUENCE IF NOT EXISTS seq_syndicator START 1;
+CREATE OR REPLACE TABLE syndicator (
+    id         INTEGER PRIMARY KEY DEFAULT nextval('seq_syndicator'),
+    edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name       VARCHAR   NOT NULL,
+    code       VARCHAR   NOT NULL
+);
+
+CREATE SEQUENCE IF NOT EXISTS seq_state START 1;
+CREATE OR REPLACE TABLE state (
+    id         INTEGER PRIMARY KEY DEFAULT nextval('seq_state'),
+    edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name       VARCHAR   NOT NULL,
+    code       varchar   NOT NULL,
+    is_state  BOOLEAN   NOT NULL DEFAULT TRUE
+);
+
+CREATE SEQUENCE IF NOT EXISTS seq_media_outlet START 1;
+CREATE OR REPLACE TABLE media_outlet (
+    id                   INTEGER PRIMARY KEY DEFAULT nextval('seq_media_outlet'),
+    edit_time            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    media_outlet_type_id INTEGER   NOT NULL DEFAULT 1,
+    state_id             INTEGER   NOT NULL DEFAULT 1,
+    bias_rating_id       INTEGER   NOT NULL DEFAULT 1,
+    name                 VARCHAR   NOT NULL UNIQUE,
+    domain_name          VARCHAR   NOT NULL UNIQUE,
+    note                 VARCHAR   NOT NULL,
+    active               BOOLEAN   NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (media_outlet_type_id)  REFERENCES media_outlet_type(id),
+    FOREIGN KEY (bias_rating_id)        REFERENCES bias_rating(id),
+    FOREIGN KEY (state_id)              REFERENCES state(id)
+);
+
+CREATE SEQUENCE IF NOT EXISTS seq_story START 1;
+CREATE OR REPLACE TABLE story (
+    id                  INTEGER PRIMARY KEY DEFAULT nextval('seq_story'),
+    edit_time           TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    syndicator_id       INTEGER   NOT NULL DEFAULT 1,
+    media_outlet_id     INTEGER   NOT NULL DEFAULT 1,
+    media_cloud_id      VARCHAR   NOT NULL UNIQUE,
+    publish_date        TIMESTAMP NOT NULL DEFAULT TIMESTAMP '2000-01-01 00:00:00',
+    title               VARCHAR   NOT NULL,
+    url                 VARCHAR   NOT NULL UNIQUE,
+    language            VARCHAR   NOT NULL DEFAULT 'en',
+    authors             VARCHAR   NOT NULL DEFAULT '',
+    image               VARCHAR   NOT NULL DEFAULT '',
+    body                VARCHAR   NOT NULL DEFAULT '',
+    summary             VARCHAR   NOT NULL DEFAULT '',
+    active              BOOLEAN   NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (syndicator_id)   REFERENCES syndicator(id),
+    FOREIGN KEY (media_outlet_id) REFERENCES media_outlet(id),
+);

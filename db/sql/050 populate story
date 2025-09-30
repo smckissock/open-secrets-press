@@ -1,0 +1,48 @@
+CREATE OR REPLACE VIEW populate_story_view
+AS
+SELECT 
+  1,
+  COALESCE(m.id, 1) AS media_outlet_id,
+  s.id media_cloud_id,
+  s.publish_date,
+  s.title,
+  s.url,
+  s.language,
+  n.authors,
+  n.top_image image,
+  n.text body,
+  n.summary,
+  1
+FROM stage_story s
+JOIN stage_newspaper n ON n.media_cloud_id = s.id
+LEFT JOIN media_outlet m ON m.domain_name = s.media_url;
+
+
+INSERT INTO story (
+    syndicator_id,
+    media_outlet_id,
+    media_cloud_id,
+    publish_date,
+    title,
+    url,
+    language,
+    authors,
+    image,
+    body,
+    summary,
+    active
+)
+SELECT 
+    1,                    -- syndicator_id (hardcoded as 1)
+    media_outlet_id,      -- from the view (COALESCE ensures default of 1)
+    media_cloud_id,       -- from stage_story.id
+    publish_date,
+    title,
+    url,
+    language,
+    authors,              -- from stage_newspaper
+    image,                -- from stage_newspaper.top_image
+    body,                 -- from stage_newspaper.text
+    summary,              -- from stage_newspaper
+    1                     -- active (hardcoded as TRUE/1)
+FROM populate_story_view;

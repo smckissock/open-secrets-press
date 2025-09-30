@@ -60,7 +60,7 @@ export class Site {
 
     setupCharts() {
         dc.refresh = this.refresh;
-        new RowChart(this.facts, 'media_name', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
+        new RowChart(this.facts, 'media_outlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
     }
 
     listStories() {

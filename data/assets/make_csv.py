@@ -7,7 +7,7 @@ def export_stories_to_csv(
     csv_path="web/data/stories.csv"
 ):
     conn = duckdb.connect(db_path)
-    df = conn.execute("SELECT * FROM stories").fetchdf()
+    df = conn.execute("SELECT * FROM story_web_view").fetchdf()
     conn.close()
 
     df.to_csv(csv_path, index=False)

@@ -1,0 +1,94 @@
+-- Populate state table with US states, DC, and territories
+
+-- Default/Unspecified
+INSERT INTO state (id, name, code, is_state) VALUES
+(1, 'Unspecified', '', FALSE),
+
+-- States (alphabetically)
+(2, 'Alabama', 'AL', TRUE),
+(3, 'Alaska', 'AK', TRUE),
+(4, 'Arizona', 'AZ', TRUE),
+(5, 'Arkansas', 'AR', TRUE),
+(6, 'California', 'CA', TRUE),
+(7, 'Colorado', 'CO', TRUE),
+(8, 'Connecticut', 'CT', TRUE),
+(9, 'Delaware', 'DE', TRUE),
+(10, 'Florida', 'FL', TRUE),
+(11, 'Georgia', 'GA', TRUE),
+(12, 'Hawaii', 'HI', TRUE),
+(13, 'Idaho', 'ID', TRUE),
+(14, 'Illinois', 'IL', TRUE),
+(15, 'Indiana', 'IN', TRUE),
+(16, 'Iowa', 'IA', TRUE),
+(17, 'Kansas', 'KS', TRUE),
+(18, 'Kentucky', 'KY', TRUE),
+(19, 'Louisiana', 'LA', TRUE),
+(20, 'Maine', 'ME', TRUE),
+(21, 'Maryland', 'MD', TRUE),
+(22, 'Massachusetts', 'MA', TRUE),
+(23, 'Michigan', 'MI', TRUE),
+(24, 'Minnesota', 'MN', TRUE),
+(25, 'Mississippi', 'MS', TRUE),
+(26, 'Missouri', 'MO', TRUE),
+(27, 'Montana', 'MT', TRUE),
+(28, 'Nebraska', 'NE', TRUE),
+(29, 'Nevada', 'NV', TRUE),
+(30, 'New Hampshire', 'NH', TRUE),
+(31, 'New Jersey', 'NJ', TRUE),
+(32, 'New Mexico', 'NM', TRUE),
+(33, 'New York', 'NY', TRUE),
+(34, 'North Carolina', 'NC', TRUE),
+(35, 'North Dakota', 'ND', TRUE),
+(36, 'Ohio', 'OH', TRUE),
+(37, 'Oklahoma', 'OK', TRUE),
+(38, 'Oregon', 'OR', TRUE),
+(39, 'Pennsylvania', 'PA', TRUE),
+(40, 'Rhode Island', 'RI', TRUE),
+(41, 'South Carolina', 'SC', TRUE),
+(42, 'South Dakota', 'SD', TRUE),
+(43, 'Tennessee', 'TN', TRUE),
+(44, 'Texas', 'TX', TRUE),
+(45, 'Utah', 'UT', TRUE),
+(46, 'Vermont', 'VT', TRUE),
+(47, 'Virginia', 'VA', TRUE),
+(48, 'Washington', 'WA', TRUE),
+(49, 'West Virginia', 'WV', TRUE),
+(50, 'Wisconsin', 'WI', TRUE),
+(51, 'Wyoming', 'WY', TRUE),
+
+-- District of Columbia
+(52, 'District of Columbia', 'DC', FALSE),
+
+-- US Territories
+(53, 'American Samoa', 'AS', FALSE),
+(54, 'Guam', 'GU', FALSE),
+(55, 'Northern Mariana Islands', 'MP', FALSE),
+(56, 'Puerto Rico', 'PR', FALSE),
+(57, 'US Virgin Islands', 'VI', FALSE),
+
+(58, 'UK', 'UK', FALSE);
+
+
+
+INSERT INTO media_outlet_type (id, name, media_cloud_code) VALUES
+(1, 'Other', 'other'),
+(2, 'Web Publication', 'digital_native'),
+(3, 'Local News Outlet', 'print_native'),
+(4, 'National News Outlet', 'video_broadcast'),
+(5, 'Network TV News', 'twitter'),
+(6, 'Cable TV News', 'usg_agency'),
+(7, 'Opinion Journal', 'facebook'),
+(8, 'Advocacy Group', 'advocacy_group'),
+(9, 'Local Broadcast News', 'local_publication'),
+(10, 'Court Documents', 'court_documents'),
+(11, 'Blog', 'blog');
+
+
+INSERT INTO bias_rating (id, name, ordering) VALUES
+(1, 'Unspecified', 0),
+(2, 'Left', 1),
+(3, 'Center Left', 2),
+(4, 'Center', 3),
+(5, 'Mixed', 3),
+(6, 'Center Right', 4),
+(7, 'Right', 5);

@@ -29,7 +29,7 @@ def _fetch_story_rows(conn: duckdb.DuckDBPyConnection) -> Iterable[Tuple[str, st
     """
     sql = """
         SELECT s.id, s.url
-        FROM stories s
+        FROM stage_story s
         LEFT JOIN stage_newspaper n
           ON n.media_cloud_id = CAST(s.id AS VARCHAR)
         WHERE n.media_cloud_id IS NULL
