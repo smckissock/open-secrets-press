@@ -91,6 +91,12 @@ export class Site {
                   </h5>
                   <h3 class="story-title">${d.title}</h3>
                   <p class="story-excerpt">
+
+                    ${d.sentence.replace(
+                      /OpenSecrets/gi,
+                      `<b><span style="color:#000">OpenSecrets</span></b>`
+                    )}
+
                   </p>
                 </div>
               </div>

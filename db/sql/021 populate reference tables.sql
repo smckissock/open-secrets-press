@@ -1,6 +1,5 @@
--- Populate state table with US states, DC, and territories
+-- 021 populate reference tables.sql
 
--- Default/Unspecified
 INSERT INTO state (id, name, code, is_state) VALUES
 (1, 'Unspecified', '', FALSE),
 
@@ -68,6 +67,9 @@ INSERT INTO state (id, name, code, is_state) VALUES
 
 (58, 'UK', 'UK', FALSE);
 
+
+INSERT INTO syndicator (id, name, code) VALUES
+(1, 'None', 'None');
 
 
 INSERT INTO media_outlet_type (id, name, media_cloud_code) VALUES

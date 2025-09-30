@@ -1,3 +1,5 @@
+-- 050 populate story.sql
+
 CREATE OR REPLACE VIEW populate_story_view
 AS
 SELECT 

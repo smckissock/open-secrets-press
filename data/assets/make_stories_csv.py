@@ -11,8 +11,8 @@ def export_stories_to_csv(
 ):
     conn = duckdb.connect(db_path)
     df = conn.execute("""
-        SELECT * FROM story_display_view 
-        WHERE image <> ''
+        SELECT * FROM story_web_view 
+        WHERE image <> '' AND sentence <> ''
     """).fetchdf()
     conn.close()
 

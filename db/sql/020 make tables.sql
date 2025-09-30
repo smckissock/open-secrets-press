@@ -1,13 +1,18 @@
+-- 020 Make tables.sql
+
 DROP TABLE IF EXISTS story;
 DROP TABLE IF EXISTS media_outlet;
 DROP TABLE IF EXISTS bias_rating;
 DROP TABLE IF EXISTS media_outlet_type;
+DROP TABLE IF EXISTS syndicator;
+DROP TABLE IF EXISTS state;
+
 
 CREATE SEQUENCE IF NOT EXISTS seq_media_outlet_type START 1;
 CREATE OR REPLACE TABLE media_outlet_type (
     id               INTEGER PRIMARY KEY DEFAULT nextval('seq_media_outlet_type'),
     edit_time        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    name             VARCHAR   NOT NULL,
+    name             VARCHAR   NOT NULL UNIQUE,
     media_cloud_code VARCHAR   NOT NULL
 );
 
@@ -15,7 +20,7 @@ CREATE SEQUENCE IF NOT EXISTS seq_bias_rating START 1;
 CREATE OR REPLACE TABLE bias_rating (
     id         INTEGER PRIMARY KEY DEFAULT nextval('seq_bias_rating'),
     edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    name       VARCHAR   NOT NULL,
+    name       VARCHAR   NOT NULL UNIQUE,
     ordering   INTEGER   NOT NULL
 );
 
@@ -23,16 +28,16 @@ CREATE SEQUENCE IF NOT EXISTS seq_syndicator START 1;
 CREATE OR REPLACE TABLE syndicator (
     id         INTEGER PRIMARY KEY DEFAULT nextval('seq_syndicator'),
     edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    name       VARCHAR   NOT NULL,
-    code       VARCHAR   NOT NULL
+    name       VARCHAR   NOT NULL UNIQUE,
+    code       VARCHAR   NOT NULL UNIQUE
 );
 
 CREATE SEQUENCE IF NOT EXISTS seq_state START 1;
 CREATE OR REPLACE TABLE state (
     id         INTEGER PRIMARY KEY DEFAULT nextval('seq_state'),
     edit_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    name       VARCHAR   NOT NULL,
-    code       varchar   NOT NULL,
+    name       VARCHAR   NOT NULL UNIQUE,
+    code       varchar   NOT NULL UNIQUE,
     is_state  BOOLEAN   NOT NULL DEFAULT TRUE
 );
 
@@ -59,13 +64,14 @@ CREATE OR REPLACE TABLE story (
     syndicator_id       INTEGER   NOT NULL DEFAULT 1,
     media_outlet_id     INTEGER   NOT NULL DEFAULT 1,
     media_cloud_id      VARCHAR   NOT NULL UNIQUE,
+    url                 VARCHAR   NOT NULL UNIQUE,
     publish_date        TIMESTAMP NOT NULL DEFAULT TIMESTAMP '2000-01-01 00:00:00',
     title               VARCHAR   NOT NULL,
-    url                 VARCHAR   NOT NULL UNIQUE,
     language            VARCHAR   NOT NULL DEFAULT 'en',
     authors             VARCHAR   NOT NULL DEFAULT '',
     image               VARCHAR   NOT NULL DEFAULT '',
     body                VARCHAR   NOT NULL DEFAULT '',
+    sentence            VARCHAR   NOT NULL DEFAULT '',
     summary             VARCHAR   NOT NULL DEFAULT '',
     active              BOOLEAN   NOT NULL DEFAULT TRUE,
     FOREIGN KEY (syndicator_id)   REFERENCES syndicator(id),

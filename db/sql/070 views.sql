@@ -1,3 +1,5 @@
+-- 070 views.sql
+
 CREATE OR REPLACE VIEW media_outlet_view AS
 SELECT 
     m.id,
@@ -33,6 +35,7 @@ SELECT
     m.state,
     m.state_code,
     m.bias_rating,
+    s.sentence,
     syn.name AS syndicator
 FROM story s
 JOIN media_outlet_view m ON s.media_outlet_id = m.id
