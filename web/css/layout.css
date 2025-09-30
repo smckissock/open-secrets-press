@@ -25,8 +25,8 @@ a:active {
     display: grid;
     grid-template-areas:
         "title               title                      filters      "       
-        "chart-publication   chart-bias                 chart-list        "
-        "chart-publication   chart-mediaOutletType      chart-list        ";
+        "chart-mediaOutlet   chart-biasRating           chart-list        "
+        "chart-mediaOutlet   chart-mediaOutletType      chart-list        ";
     grid-template-columns: var(--left-width) var(--center-width) 1fr;
     grid-template-rows: var(--logo-height) var(--bias-height)  1fr;
     gap: 10px 20px;
@@ -49,21 +49,16 @@ a:active {
     grid-area: filters;
 }
 
-#chart-month {
-    grid-area: chart-month;
+#chart-mediaOutletType {
+    grid-area: chart-mediaOutletType;
 }
 
-#chart-media-type {
-    grid-area: chart-media-type;
+#chart-biasRating {
+    grid-area: chart-biasRating;
 }
 
-
-#chart-bias {
-    grid-area: chart-bias;
-}
-
-#chart-publication {
-    grid-area: chart-publication;
+#chart-mediaOutlet {
+    grid-area: chart-mediaOutlet;
     overflow-y: auto;
 }
 
@@ -72,7 +67,7 @@ a:active {
     overflow: auto;
 }
 
-#chart-topic, #chart-publication, #chart-mediaOutletType, #chart-bias {
+#chart-topic, #chart-mediaOutlet, #chart-mediaOutletType, #chart-biasRating {
     font-weight: 500;
     font-size: 16px;
 }

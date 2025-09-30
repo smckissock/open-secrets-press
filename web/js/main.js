@@ -13,7 +13,7 @@ export class Site {
             this.stories = stories;
             this.stories.forEach(story => {
                 story.count = 1;
-                story.date = new Date(story.publish_date);
+                story.date = new Date(story.publishDate);
                 if (story.title == '') {
                     story.title = 'Link to story';
                 }               
@@ -60,7 +60,10 @@ export class Site {
 
     setupCharts() {
         dc.refresh = this.refresh;
-        new RowChart(this.facts, 'media_outlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
+        new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
+
+        new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null, true);
+        new RowChart(this.facts, 'mediaOutletType', 180, 9, this.refresh, 'Media Type', null, true);
     }
 
     listStories() {
@@ -70,7 +73,7 @@ export class Site {
               <div class="story" onclick="window.open('${d.url}', '_blank', 'noopener')">          
                 <div class="story-body">
                   <h5 class="story-topic">
-                    <strong>${d.media_name}</strong> 
+                    <strong>${d.mediaOutlet}</strong> 
                      <strong>${formatDate(d.date)} 
                    </h5>
                   <h3 class="story-title">${d.title}</h3>
