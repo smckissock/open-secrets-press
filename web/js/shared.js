@@ -54,7 +54,6 @@ export function rightText(text, svg, style, x1, width, y) {
 }
 
 export function secondsToString(secs) {
-    //var sec_num = parseInt(this, 10); // don't forget the second param
     var hours   = Math.floor(secs / 3600);
     var minutes = Math.floor((secs - (hours * 3600)) / 60);
     var seconds = secs - (hours * 3600) - (minutes * 60);

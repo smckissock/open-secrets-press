@@ -41,7 +41,11 @@ export class Site {
         window.site.listStories();
 
         const stories = dc.facts.allFiltered().length;
-        let filters = [];
+        let filters = [];   
+        dc.chartRegistry.list().forEach(chart => {
+            chart.filters().forEach(filter => filters.push(filter));
+        });
+
         d3.select('#filters')
             .html(`
                 <button id='clear-filters' class='clear-button'>Clear All</button>
@@ -51,8 +55,6 @@ export class Site {
 
         d3.select('#clear-filters').on('click', function() {
             dc.filterAll();
-            dc.map.dim.filter(null);
-            dc.map.update();
             dc.refresh();
             window.site.listStories();
         });
@@ -61,9 +63,9 @@ export class Site {
     setupCharts() {
         dc.refresh = this.refresh;
         new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
-
         new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null, true);
-        new RowChart(this.facts, 'mediaOutletType', 180, 9, this.refresh, 'Media Type', null, true);
+        new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null, true);
+        new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null, true);
     }
 
     listStories() {

@@ -1,12 +1,12 @@
 :root {
     font-size: calc(0.5em + 1vw);
 
-    --logo-height: 50px;  
+    --logo-height: 80px;  
     --bias-height: 200px;
     --media-type-height: 270px;
         
-    --left-width: 220px;
-    --center-width: 180px; 
+    --left-width: 200px;
+    --center-width: 230px; 
 }
 
 body {
@@ -26,7 +26,8 @@ a:active {
     grid-template-areas:
         "title               title                      filters      "       
         "chart-mediaOutlet   chart-biasRating           chart-list        "
-        "chart-mediaOutlet   chart-mediaOutletType      chart-list        ";
+        "chart-mediaOutlet   chart-mediaOutletType      chart-list        "
+        "chart-mediaOutlet   chart-state                chart-list        ";
     grid-template-columns: var(--left-width) var(--center-width) 1fr;
     grid-template-rows: var(--logo-height) var(--bias-height)  1fr;
     gap: 10px 20px;
@@ -59,15 +60,20 @@ a:active {
 
 #chart-mediaOutlet {
     grid-area: chart-mediaOutlet;
+}
+
+#chart-state {
+    grid-area: chart-state;
     overflow-y: auto;
 }
+
 
 #chart-list {
     grid-area: chart-list;
     overflow: auto;
 }
 
-#chart-topic, #chart-mediaOutlet, #chart-mediaOutletType, #chart-biasRating {
+#chart-topic, #chart-mediaOutlet, #chart-mediaOutletType, #chart-biasRating, #chart-state {
     font-weight: 500;
     font-size: 16px;
 }
