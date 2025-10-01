@@ -6,13 +6,18 @@ def to_camel_case(snake_str):
     return components[0] + ''.join(x.title() for x in components[1:])
 
 def export_stories_to_csv(
-    db_path="db/data.duckdb",
-    csv_path="web/data/stories.csv"
+    db_path = "db/data.duckdb",
+    csv_path = "web/data/stories.csv",
+    parquet_path = "web/data/stories.parquet"
 ):
     conn = duckdb.connect(db_path)
+    # df = conn.execute("""
+    #     SELECT * FROM story_web_view 
+    #     WHERE image <> '' AND sentence <> ''
+    # """).fetchdf()
+
     df = conn.execute("""
-        SELECT * FROM story_web_view 
-        WHERE image <> '' AND sentence <> ''
+        SELECT * FROM story_web_view
     """).fetchdf()
     conn.close()
 
@@ -20,6 +25,9 @@ def export_stories_to_csv(
     
     df.to_csv(csv_path, index=False)
     print(f"Exported {len(df)} stories to {csv_path}")
+
+    df.to_parquet(parquet_path, index=False)
+    print(f"Exported {len(df)} stories to {parquet_path}")
 
 if __name__ == "__main__":
     export_stories_to_csv()

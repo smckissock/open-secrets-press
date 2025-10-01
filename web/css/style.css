@@ -193,3 +193,49 @@ p.story-excerpt {
 }
 
 
+
+#loading-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.2s ease;
+}
+
+.loading-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+.spinner {
+    width: 200px;
+    height: 200px;
+    border: 40px solid #f3f3f3;
+    border-top: 40px solid #9ecae1;
+    border-radius: 90%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.story-image {
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.story-image.loaded {
+    opacity: 1;
+}
+
+
+
+

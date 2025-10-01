@@ -5,6 +5,13 @@
     <title>OpenSecrets Press</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <script type="importmap"> {
+        "imports": {
+            "@duckdb/duckdb-wasm": "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/+esm"
+        }
+    }
+    </script>
+
     <script src='https://unpkg.com/crossfilter2@1.4.8/crossfilter.js'></script>
     <script src='https://d3js.org/d3.v7.min.js'></script>
     <script src='https://unpkg.com/dc@4.2.7/dist/dc.js'></script>   
@@ -16,6 +23,9 @@
 </head>
 
 <body>
+    <div id="loading-overlay" class="loading-hidden">
+        <div class="spinner"></div>
+    </div>
 
     <div id='chart-container' class='container'>
         <div id='title'>
@@ -25,5 +35,9 @@
         <div id='filters'></div>
         <div id='chart-list'></div>
     </div>
+
+    <script data-goatcounter="https://smckissock.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js">
+    </script>
 </body>
 </html>

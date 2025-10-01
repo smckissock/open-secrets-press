@@ -1,5 +1,6 @@
 import {formatDate, addCommas, scrollToTop, biasColors} from './shared.js';
 import {RowChart} from './rowChart.js'; 
+import {loadParquetData} from './dataLoader.js';
 
 
 export class Site {
@@ -8,7 +9,8 @@ export class Site {
     if (window.location.hostname === '127.0.0.1') 
             document.title = 'OpenSecrets DEV';
 
-        this.configure();                
+        const overlay = document.getElementById('loading-overlay');
+        overlay.classList.replace('loading-hidden','loading-visible');
         this.getData().then(stories => {
             this.stories = stories;
             this.stories.forEach(story => {
@@ -23,18 +25,15 @@ export class Site {
 
             this.setupCharts();
             dc.renderAll();
+            
+            overlay.classList.replace('loading-visible','loading-hidden'); 
             this.refresh();
         });
         window.site = this;        
     }
 
-    configure() {
-    }
-
     async getData() {
-        const res = await fetch("./data/stories.csv", { cache: 'no-store' });
-        const stories = await res.text();
-        return d3.csvParse(stories);   
+        return await loadParquetData('data/stories.parquet');
     }
 
     refresh() {
@@ -55,6 +54,7 @@ export class Site {
 
         d3.select('#clear-filters').on('click', function() {
             dc.filterAll();
+            dc.redrawAll()
             dc.refresh();
             window.site.listStories();
         });
