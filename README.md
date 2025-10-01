@@ -1,5 +1,7 @@
 # OpenSecrets Press
 
+[**View Live Site →**](https://smckissock.github.io/open-secrets-press/)
+
 ### Data
 - Use MediaCloud API to access OpenSecrets press coverage
 - Scrape articles written by OpenSecrets staff from OPenSecret site
