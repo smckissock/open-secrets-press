@@ -15,4 +15,9 @@ CREATE TABLE stage_newspaper (
 );
 
 
+CREATE TABLE stage_sentence (
+    media_cloud_id  VARCHAR,
+    import_date     TIMESTAMP,
+    sentence        VARCHAR
+);
 

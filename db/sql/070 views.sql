@@ -32,7 +32,7 @@ SELECT
     s.language,
     m.name media_outlet,
     m.media_outlet_type,
-    m.state,
+    COALESCE(NULLIF(m.state, 'Unspecified'), 'National') AS state,
     m.state_code,
     m.bias_rating,
     s.sentence,

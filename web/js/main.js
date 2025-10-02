@@ -48,7 +48,7 @@ export class Site {
         d3.select('#filters')
             .html(`
                 <button id='clear-filters' class='clear-button'>Clear All</button>
-                <span class='case-count'> ${addCommas(stories)} stories</span> &nbsp;
+                <span class='case-count'> ${addCommas(stories)} OpenSecrets citations</span> &nbsp;
                 <span class='case-filters'>${filters.join(', ')}</span>
             `);
 
@@ -84,7 +84,7 @@ export class Site {
                 >
                 <div class="story-body">
                   <h5 class="story-topic">
-                    <strong>${d.mediaOutlet}</strong> ${formatDate(d.date)} ${d.authors}
+                    <span class="media-outlet">${d.mediaOutlet}</span><span class="date-authors"> &nbsp; ${formatDate(d.date)}  • ${d.authors}</span>
                     <span style="float:right;color:${biasColors[d.biasRating]||'#333'}">
                       ${d.biasRating}
                     </span>

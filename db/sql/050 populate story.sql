@@ -10,7 +10,7 @@ SELECT
   s.title,
   s.url,
   s.language,
-  n.authors,
+  clean_authors(n.authors) authors,
   n.top_image image,
   n.text body,
   n.summary,

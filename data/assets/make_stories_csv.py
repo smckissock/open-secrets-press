@@ -17,7 +17,7 @@ def export_stories_to_csv(
     # """).fetchdf()
 
     df = conn.execute("""
-        SELECT * FROM story_web_view
+        SELECT * FROM story_web_view WHERE media_outlet <> 'Unspecified'
     """).fetchdf()
     conn.close()
 
