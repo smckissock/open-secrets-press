@@ -62,10 +62,10 @@ export class Site {
 
     setupCharts() {
         dc.refresh = this.refresh;
-        new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null, true);
-        new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null, true);
-        new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null, true);
-        new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null, true);
+        new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null);
+        new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null);
+        new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null);
+        new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null);
     }
 
     listStories() {
@@ -84,7 +84,7 @@ export class Site {
                 >
                 <div class="story-body">
                   <h5 class="story-topic">
-                    <span class="media-outlet">${d.mediaOutlet}</span><span class="date-authors"> &nbsp; ${formatDate(d.date)}  • ${d.authors}</span>
+                    <span class="media-outlet">${d.mediaOutlet}</span><span class="date-authors"> &nbsp; ${formatDate(d.date)}   ${d.authors}</span>
                     <span style="float:right;color:${biasColors[d.biasRating]||'#333'}">
                       ${d.biasRating}
                     </span>

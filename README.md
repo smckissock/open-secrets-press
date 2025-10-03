@@ -1,17 +1,26 @@
 # OpenSecrets Press
 
-[**View Live Site →**](https://smckissock.github.io/open-secrets-press/)
+A site to and find where OpenSecret's research has been cited and get a sense of OpenSecret's impact
 
-### Data
-- Use MediaCloud API to access OpenSecrets press coverage
-- Scrape articles written by OpenSecrets staff from OPenSecret site
-- Use manually intered information about media outlets from a Google Sheet
-- Use Newspaper3k to extract text, photo URL, etc.
-- Use Dagster to get raw data, populate a star schema, and produce flat CSV for the website
+[**View Live Site**](https://smckissock.github.io/open-secrets-press/)
 
-### Web
-- All data in gzipped csv
-- Use d3.js / dc.js / crossfilter to render data
-- Allow filtering by date, publication, author, publication type, right/left and tag
-- Display publication, date, headline, author, photo, quote. Click to go to url 
+### Data management
+- Uses the MediaCloud api to access OpenSecrets press coverage
+- Incorporates manually entered information about media outlets from a Google Sheet - media outlet type, state/country and political orientation 
+- Newspaper3k python library to extract text, photo URL, etc.
+- SpaCy to split story text int sentences
+- DuckDB to store raw data, populate a snowflake schema, and output a view as a Parquet file for the website
 
+### Website
+- Parquet file parsed by DuckDB Wasm
+- Use d3.js/dc.js/ crossfilter to render data
+- Allow filtering by date, publication, publication type, qnd right/left 
+- Display publication, date, headline, photo, quote. Click to go to url 
+
+### Possible additions
+- Add links to pages on OpenSecrets website with relevant documentation (the journalists who write the stories should do this!) 
+- Add stories from OpenSecrets itself (scrape them)
+- Add lables and lists of entities to stories and make them searchable
+- Add a way to filter by date
+- Add tests and diagnostics around the pipeline to help improve data quality and comprehensiveness.
+ 

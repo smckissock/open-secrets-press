@@ -3,11 +3,9 @@ import { biasColors } from './shared.js';
 
 export class RowChart {
 
-    constructor(facts, attribute, width, maxItems, updateFunction, title, dim, noUnspecified) {
+    constructor(facts, attribute, width, maxItems, updateFunction, title, dim) {
         this.dim = dim ? dim : facts.dimension(dc.pluck(attribute));
         this.group = this.dim.group().reduceSum(dc.pluck('count'));
-        if (noUnspecified)
-            this.group = removeUnspecified(this.group);
 
         let bars = this.dim.group().all().length;
         if (maxItems < bars) {
@@ -57,35 +55,35 @@ export class RowChart {
             })
             .xAxis().ticks(4).tickFormat(d3.format('.2s'));
 
-        // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
-        function removeUnspecified(group) {
-            let predicate = d => d.key !== 'Unspecified';
+    //     // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
+    //     function removeUnspecified(group) {
+    //         let predicate = d => d.key !== 'Unspecified';
 
-            return {
-                all: function () {
-                    return group.all().filter(d => predicate(d));
-                },
-                top: function (n) {
-                    return group.top(Infinity)
-                        .filter(predicate)
-                        .slice(0, n);
-                }
-            };
-        }
-    }
+    //         return {
+    //             all: function () {
+    //                 return group.all().filter(d => predicate(d));
+    //             },
+    //             top: function (n) {
+    //                 return group.top(Infinity)
+    //                     .filter(predicate)
+    //                     .slice(0, n);
+    //             }
+    //         };
+    //     }
+    // }
 
-    // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
-    removeUnspecified(group) {
-        let predicate = d => d.key !== 'Unspecified';
-        return {
-            all: function () {
-                return group.all().filter(d => predicate(d));
-            },
-            top: function (n) {
-                return group.top(Infinity)
-                    .filter(predicate)
-                    .slice(0, n);
-            }
-        };
+    // // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
+    // removeUnspecified(group) {
+    //     let predicate = d => d.key !== 'Unspecified';
+    //     return {
+    //         all: function () {
+    //             return group.all().filter(d => predicate(d));
+    //         },
+    //         top: function (n) {
+    //             return group.top(Infinity)
+    //                 .filter(predicate)
+    //                 .slice(0, n);
+    //         }
+    //     };
     }
 }
