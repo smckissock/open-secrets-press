@@ -1,8 +1,11 @@
 import spacy
 import unicodedata
 import sys
-import duckdb
 from datetime import datetime
+
+import duckdb
+
+from .db_connection import connect
 
 # Load spaCy model
 try:
@@ -54,35 +57,33 @@ def extract_sentences(conn, media_cloud_id, body):
     )
 
 
-def populate_stage_sentence():
-    """Main function to populate the stage_sentence table."""
-    db_path = "db/data.duckdb"
-    conn = duckdb.connect(db_path)
+def get_sentence():
+    conn = connect() 
     
     try:
-        # Query all stories that haven't been processed yet
+        # Get stories with no sentence record
         result = conn.execute("""
-            SELECT media_cloud_id, body 
-            FROM story
-            WHERE body <> '' 
-            AND media_cloud_id NOT IN (SELECT media_cloud_id FROM stage_sentence)
+                SELECT media_cloud_id, body 
+                FROM story
+                WHERE body <> '' 
+                AND media_cloud_id NOT IN (SELECT media_cloud_id FROM stage_sentence)
         """).fetchall()
         
         total = len(result)
-        print(f"Found {total} stories to process...")
+        print(f"Found {total} stories to to find sentences for")
         
         count = 0
         for row in result:
             extract_sentences(conn, row[0], row[1])  # media_cloud_id and body
             count += 1
             if count % 100 == 0:
-                print(f"Processed {count} of {total} stories...")
+                print(f"Checked {count} of {total} stories...")
                     
-        print(f"Complete! Processed {count} of {total} stories.")
+        print(f"Complete! Looked for sentences for {count} of {total} stories.")
         
     finally:
         conn.close()
 
 
 if __name__ == "__main__":
-    populate_stage_sentence()
+    get_sentence()

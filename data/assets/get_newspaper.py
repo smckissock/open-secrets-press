@@ -1,10 +1,14 @@
 # data/assets/get_newspaper.py
 import time
+import os
 import random
 from datetime import datetime, date
 from typing import Any, Dict, Iterable, Tuple, Optional
+from dotenv import load_dotenv
 
 import duckdb
+
+from .db_connection import connect
 
 
 def normalize_timestamp(value) -> Optional[datetime]:
@@ -82,7 +86,6 @@ def process_url(url: str) -> Dict[str, Any]:
             art.download()
             art.parse()
 
-            # Try to build metadata, but don't fail if it errors
             try:
                 art.build()
             except Exception as e:
@@ -125,13 +128,12 @@ def process_url(url: str) -> Dict[str, Any]:
         }
 
 
-def main():
-    db_path = "db/data.duckdb"
-    conn = duckdb.connect(db_path)
-
+def get_newspaper():
+    conn = connect()
+    
     stories = get_stories_without_newspaper(conn)
     total = len(stories)
-    print(f"Found {total} stories to process")
+    print(f"Found {total} stories to without newspaper data.")
 
     processed_ok = 0
     processed_fail = 0
@@ -184,7 +186,11 @@ def main():
     elapsed = time.time() - start_time
     print(f"Done in {elapsed/60:.1f} minutes. Success: {processed_ok}, Failed: {processed_fail}")
     conn.close()
+    return {
+        "stories_found": processed_ok,
+        "stories_not_found": processed_fail
+    }
 
 
 if __name__ == "__main__":
-    main()
+    get_newspaper()

@@ -2,20 +2,22 @@
 import os
 import datetime as dt
 from dotenv import load_dotenv
-from typing import Iterable, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import duckdb
 import pandas as pd
 from pathlib import Path
 import mediacloud.api
 
+from .db_connection import connect
+
 load_dotenv()
 
 
-def parse_date(date_str):
+def parse_date(date_str: Optional[str]) -> Optional[dt.datetime]:
     if not date_str:
         return None
-    formats_to_try = [
+    formats_to_try: List[str] = [
         '%Y-%m-%d %H:%M:%S',  # 2024-02-15 14:30:00
         '%Y-%m-%d',           # 2024-02-15
         '%m/%d/%Y',           # 2/15/2024
@@ -31,10 +33,10 @@ def parse_date(date_str):
     return None
 
 
-def get_media_cloud_stories():
-    search_api = mediacloud.api.SearchApi(os.environ['MEDIACLOUD_API_KEY'])
+def get_media_cloud_stories() -> List[Dict[str, Any]]:
+    search_api: mediacloud.api.SearchApi = mediacloud.api.SearchApi(os.environ['MEDIACLOUD_API_KEY'])
 
-    collection_ids = [
+    collection_ids: List[int] = [
         34412234,   # United States - National
         262985232,  # US College Papers
         262985236,  # US Most Visited New Online (Mar 2025)
@@ -42,19 +44,20 @@ def get_media_cloud_stories():
         186572516   # U.S. Top Sources 2018
     ]
 
-    terms = ["opensecrets"]
-    ored_terms = " OR ".join(f'"{term}"' for term in terms)
+    terms: List[str] = ["opensecrets"]
+    ored_terms: str = " OR ".join(f'"{term}"' for term in terms)
 
-    start_date = dt.date(2023, 1, 1)
-    end_date =  dt.date.today()
+    start_date: dt.date = dt.date(2025, 9, 26)
+    end_date: dt.date = dt.date.today()
     
     print(f"Searching for stories from {start_date} to {end_date}")
 
-    all_stories = []
-    more_stories = True
-    pagination_token = None
+    all_stories: List[Dict[str, Any]] = []
+    more_stories: bool = True
+    pagination_token: Optional[str] = None
 
     while more_stories:
+        page: List[Dict[str, Any]]
         page, pagination_token = search_api.story_list(
             ored_terms,
             start_date,
@@ -68,26 +71,37 @@ def get_media_cloud_stories():
     return all_stories
 
 
-def save_stories(stories, db_path="db/data.duckdb"):
-    Path(db_path).parent.mkdir(parents=True, exist_ok=True)
+# Excludes those with duplicate IDs 
+def save_stories(stories: List[Dict[str, Any]]) -> None:
+    df: pd.DataFrame = pd.DataFrame(stories)
+    conn: duckdb.DuckDBPyConnection = connect()
 
-    df = pd.DataFrame(stories)
-    conn = duckdb.connect(db_path)
-
-    conn.execute("CREATE TABLE IF NOT EXISTS stories AS SELECT * FROM df LIMIT 0")
-    conn.register("df", df)
-    conn.execute("INSERT INTO stories SELECT * FROM df")
-
+    # Get existing IDs as a set for O(1) lookup
+    existing_ids: set = set(
+        conn.execute("SELECT id FROM stage_story").fetchdf()['id'].tolist()
+    )
+    
+    # Filter out stories with existing IDs
+    df_filtered: pd.DataFrame = df[~df['id'].isin(existing_ids)]
+    
+    to_insert = len(df_filtered)
+    if to_insert > 0:
+        conn.register("df_filtered", df_filtered)
+        conn.execute("INSERT INTO stage_story SELECT * FROM df_filtered")
+        print(f"Saved {to_insert} new stories (skipped {len(df) - to_insert} duplicates)")
+    else:
+        print(f"No new stories to save ({len(df)} were duplicates)")
+        
     conn.close()
-    print(f"Saved {len(df)} stories into {db_path}")
+    return to_insert
 
 
-def get_media_cloud():
-    stories = get_media_cloud_stories()
-    save_stories(stories)
-    return stories
+def get_media_cloud() -> List[Dict[str, Any]]:
+    stories: List[Dict[str, Any]] = get_media_cloud_stories()
+    inserted = save_stories(stories)
+    return inserted
 
 
 if __name__ == "__main__":
-    stories = get_media_cloud()
+    stories: List[Dict[str, Any]] = get_media_cloud()
     print(f"Processed {len(stories)} stories")

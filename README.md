@@ -10,6 +10,7 @@ A site to and find where OpenSecret's research has been cited and get a sense of
 - Newspaper3k python library to extract text, photo URL, etc.
 - SpaCy to split story text int sentences
 - DuckDB to store raw data, populate a snowflake schema, and output a view as a Parquet file for the website
+- Steps above managed by Dagster 
 
 ### Website
 - Parquet file parsed by DuckDB Wasm
@@ -18,9 +19,9 @@ A site to and find where OpenSecret's research has been cited and get a sense of
 - Display publication, date, headline, photo, quote. Click to go to url 
 
 ### Possible additions
-- Add links to pages on OpenSecrets website with relevant documentation (the journalists who write the stories should do this!) 
-- Add stories from OpenSecrets itself (scrape them)
-- Add lables and lists of entities to stories and make them searchable
+- Add links to pages on OpenSecrets website with relevant documentation
+- Add stories from OpenSecrets itself
+- Add a way to seach by keyword
 - Add a way to filter by date
 - Add tests and diagnostics around the pipeline to help improve data quality and comprehensiveness.
  
