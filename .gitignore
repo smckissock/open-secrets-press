@@ -45,6 +45,10 @@ asset_materializations/
 run_storage/
 instance/        # some setups use this
 
+# Dagster temporary directories
+.tmp_dagster_home*
+
+
 # Node/web (if you add a frontend later)
 node_modules/
 *.log

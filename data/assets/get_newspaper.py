@@ -50,6 +50,7 @@ def insert_stage_row(
         success,
         error
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT (media_cloud_id) DO NOTHING
     """
     params = [
         str(media_cloud_id),

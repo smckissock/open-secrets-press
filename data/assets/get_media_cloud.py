@@ -33,7 +33,7 @@ def parse_date(date_str: Optional[str]) -> Optional[dt.datetime]:
     return None
 
 
-def get_media_cloud_stories() -> List[Dict[str, Any]]:
+def get_media_cloud_stories(conn: duckdb.DuckDBPyConnection) -> List[Dict[str, Any]]:
     search_api: mediacloud.api.SearchApi = mediacloud.api.SearchApi(os.environ['MEDIACLOUD_API_KEY'])
 
     collection_ids: List[int] = [
@@ -43,13 +43,12 @@ def get_media_cloud_stories() -> List[Dict[str, Any]]:
         186572435,  # U.S. Top Newspapers 2018
         186572516   # U.S. Top Sources 2018
     ]
-
     terms: List[str] = ["opensecrets"]
     ored_terms: str = " OR ".join(f'"{term}"' for term in terms)
 
-    start_date: dt.date = dt.date(2025, 9, 26)
-    end_date: dt.date = dt.date.today()
-    
+    max_date_str = conn.execute("SELECT MAX(publish_date) FROM stage_story").fetchone()[0]
+    start_date = dt.datetime.strptime(max_date_str, '%Y-%m-%d').date() #if max_date_str else dt.date(2025, 9, 26)
+    end_date: dt.date = dt.date.today()    
     print(f"Searching for stories from {start_date} to {end_date}")
 
     all_stories: List[Dict[str, Any]] = []
@@ -72,11 +71,8 @@ def get_media_cloud_stories() -> List[Dict[str, Any]]:
 
 
 # Excludes those with duplicate IDs 
-def save_stories(stories: List[Dict[str, Any]]) -> None:
+def save_stories(conn: duckdb.DuckDBPyConnection, stories: List[Dict[str, Any]]) -> int: 
     df: pd.DataFrame = pd.DataFrame(stories)
-    conn: duckdb.DuckDBPyConnection = connect()
-
-    # Get existing IDs as a set for O(1) lookup
     existing_ids: set = set(
         conn.execute("SELECT id FROM stage_story").fetchdf()['id'].tolist()
     )
@@ -91,15 +87,18 @@ def save_stories(stories: List[Dict[str, Any]]) -> None:
         print(f"Saved {to_insert} new stories (skipped {len(df) - to_insert} duplicates)")
     else:
         print(f"No new stories to save ({len(df)} were duplicates)")
-        
-    conn.close()
-    return to_insert
+    
+    return to_insert 
 
 
-def get_media_cloud() -> List[Dict[str, Any]]:
-    stories: List[Dict[str, Any]] = get_media_cloud_stories()
-    inserted = save_stories(stories)
-    return inserted
+def get_media_cloud() -> int: 
+    conn = connect()
+    try:
+        stories: List[Dict[str, Any]] = get_media_cloud_stories(conn)
+        inserted = save_stories(conn, stories)
+        return inserted
+    finally:
+        conn.close()
 
 
 if __name__ == "__main__":

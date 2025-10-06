@@ -52,7 +52,7 @@ def extract_sentences(conn, media_cloud_id, body):
     import_date = datetime.now()
     sentence_to_insert = normalize_quotes(longest_match) if longest_match else ""
     conn.execute(
-        "INSERT INTO stage_sentence (media_cloud_id, import_date, sentence) VALUES (?, ?, ?)",
+        "INSERT INTO stage_sentence (media_cloud_id, import_date, sentence) VALUES (?, ?, ?) ON CONFLICT (media_cloud_id) DO NOTHING",
         [media_cloud_id, import_date, sentence_to_insert]
     )
 

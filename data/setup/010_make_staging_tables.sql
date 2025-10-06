@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS stage_newspaper;
 
 
 CREATE TABLE stage_newspaper (
-    media_cloud_id  VARCHAR,
+    media_cloud_id  VARCHAR PRIMARY KEY,
     import_date     TIMESTAMP,
     title           VARCHAR,
     text            TEXT,
@@ -16,7 +16,7 @@ CREATE TABLE stage_newspaper (
 
 
 CREATE TABLE stage_sentence (
-    media_cloud_id  VARCHAR,
+    media_cloud_id  VARCHAR PRIMARY KEY,
     import_date     TIMESTAMP,
     sentence        VARCHAR
 );
