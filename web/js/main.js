@@ -5,8 +5,8 @@ import {loadParquetData} from './dataLoader.js';
 
 export class Site {
 
-  constructor() {
-    if (window.location.hostname === '127.0.0.1') 
+    constructor() {
+        if (window.location.hostname === '127.0.0.1') 
             document.title = 'OpenSecrets DEV';
 
         const overlay = document.getElementById('loading-overlay');
@@ -35,22 +35,21 @@ export class Site {
     async getData() {
         return await loadParquetData('data/stories.parquet');
     }
+    
+    setupCharts() {
+        dc.refresh = this.refresh;
+
+        this.rowCharts = [
+            new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null),
+            new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null),
+            new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null),
+            new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null)
+        ];
+    }
 
     refresh() {
         window.site.listStories();
-
-        const stories = dc.facts.allFiltered().length;
-        let filters = [];   
-        dc.chartRegistry.list().forEach(chart => {
-            chart.filters().forEach(filter => filters.push(filter));
-        });
-
-        d3.select('#filters')
-            .html(`
-                <button id='clear-filters' class='clear-button'>Clear All</button>
-                <span class='case-count'> ${addCommas(stories)} OpenSecrets citations</span> &nbsp;
-                <span class='case-filters'>${filters.join(', ')}</span>
-            `);
+        window.site.showFilters();
 
         d3.select('#clear-filters').on('click', function() {
             dc.filterAll();
@@ -60,18 +59,38 @@ export class Site {
         });
     }
 
-    setupCharts() {
-        dc.refresh = this.refresh;
-        new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null);
-        new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null);
-        new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null);
-        new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null);
+    showFilters() {
+        const filterTypes = [];
+        this.rowCharts.forEach(rowChart => {
+            const chartFilters = rowChart.chart.filters();
+            if (chartFilters.length > 0) {
+                filterTypes.push({
+                    name: rowChart.title,  
+                    filters: chartFilters
+                });
+            }
+        });
+        
+        const filterBoxes = filterTypes.map(filterType => `
+            <div class='filter-box'>
+                <div class='filter-box-title'>${filterType.name}</div>
+                <div class='filter-box-values'>${filterType.filters.join(', ')}</div>
+            </div>
+        `).join('');
+    
+        const storyCount = dc.facts.allFiltered().length;
+    d3.select('#filters').html(`
+        <button id='clear-filters' class='clear-button'>Clear All</button>
+        <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
+        <a href='https://github.com/smckissock/open-secrets-press' target='_blank' rel='noopener noreferrer' class='github-link'>GitHub</a>
+        <div class='filter-boxes-container'>${filterBoxes}</div>
+    `);
     }
 
+    
     listStories() {
         const storiesToShow = 60;
         function storyResult(d) {
-            console.log(d.biasRating + '  ' + biasColors[d.biasRating])
             return `
               <div class="story" onclick="window.open('${d.url}', '_blank', 'noopener')">
                 <img
@@ -101,7 +120,7 @@ export class Site {
                 </div>
               </div>
             `;
-          }
+        }
 
         let html = this.facts.allFiltered()
             .sort((a, b) =>

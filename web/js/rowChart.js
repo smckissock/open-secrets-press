@@ -4,6 +4,7 @@ import { biasColors } from './shared.js';
 export class RowChart {
 
     constructor(facts, attribute, width, maxItems, updateFunction, title, dim) {
+        this.title = title; 
         this.dim = dim ? dim : facts.dimension(dc.pluck(attribute));
         this.group = this.dim.group().reduceSum(dc.pluck('count'));
 
@@ -28,8 +29,8 @@ export class RowChart {
             return publicationColorMap;
         }
         const publicationColorMap = generatePublicationColorMap(facts);
-
-        dc.rowChart('#chart-' + attribute)
+        
+        this.chart = dc.rowChart('#chart-' + attribute)
             .dimension(this.dim)
             .group(this.group)
             .data(function (d) { return d.top(maxItems); })
@@ -53,37 +54,7 @@ export class RowChart {
             .on('filtered', () => {
                 updateFunction()
             })
-            .xAxis().ticks(4).tickFormat(d3.format('.2s'));
 
-    //     // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
-    //     function removeUnspecified(group) {
-    //         let predicate = d => d.key !== 'Unspecified';
-
-    //         return {
-    //             all: function () {
-    //                 return group.all().filter(d => predicate(d));
-    //             },
-    //             top: function (n) {
-    //                 return group.top(Infinity)
-    //                     .filter(predicate)
-    //                     .slice(0, n);
-    //             }
-    //         };
-    //     }
-    // }
-
-    // // Note: if ever want to exclude something other than 'Unspecified' we could change this to pass it in.
-    // removeUnspecified(group) {
-    //     let predicate = d => d.key !== 'Unspecified';
-    //     return {
-    //         all: function () {
-    //             return group.all().filter(d => predicate(d));
-    //         },
-    //         top: function (n) {
-    //             return group.top(Infinity)
-    //                 .filter(predicate)
-    //                 .slice(0, n);
-    //         }
-    //     };
+        this.chart.xAxis().ticks(4).tickFormat(d3.format('.2s'));
     }
 }
