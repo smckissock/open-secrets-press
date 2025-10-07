@@ -4,7 +4,7 @@ A site to and find where OpenSecret's research has been cited and get a sense of
 
 [**View Live Site**](https://smckissock.github.io/open-secrets-press/)
 
-![Screenshot](./screenshot.png)
+![Screenshot](./screenshot.jpg)
 
 ### Data Management
 - Uses the MediaCloud api to access OpenSecrets press coverage
