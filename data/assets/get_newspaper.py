@@ -38,7 +38,7 @@ def insert_stage_row(
     imported_at: datetime,
 ) -> None:
     sql = """
-    INSERT INTO stage_newspaper (
+    INSERT OR IGNORE INTO stage_newspaper (
         media_cloud_id,
         import_date,
         title,
@@ -50,7 +50,6 @@ def insert_stage_row(
         success,
         error
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ON CONFLICT (media_cloud_id) DO NOTHING
     """
     params = [
         str(media_cloud_id),

@@ -52,7 +52,7 @@ def extract_sentences(conn, media_cloud_id, body):
     import_date = datetime.now()
     sentence_to_insert = normalize_quotes(longest_match) if longest_match else ""
     conn.execute(
-        "INSERT INTO stage_sentence (media_cloud_id, import_date, sentence) VALUES (?, ?, ?) ON CONFLICT (media_cloud_id) DO NOTHING",
+        "INSERT OR IGNORE INTO stage_sentence (media_cloud_id, import_date, sentence) VALUES (?, ?, ?)",
         [media_cloud_id, import_date, sentence_to_insert]
     )
 
@@ -63,18 +63,18 @@ def get_sentence():
     try:
         # Get stories with no sentence record
         result = conn.execute("""
-                SELECT media_cloud_id, body 
-                FROM story
-                WHERE body <> '' 
+            SELECT media_cloud_id, text 
+                FROM stage_newspaper
+                WHERE text <> '' 
                 AND media_cloud_id NOT IN (SELECT media_cloud_id FROM stage_sentence)
         """).fetchall()
         
         total = len(result)
-        print(f"Found {total} stories to to find sentences for")
+        print(f"Found {total} stories to find sentences for")
         
         count = 0
         for row in result:
-            extract_sentences(conn, row[0], row[1])  # media_cloud_id and body
+            extract_sentences(conn, row[0], row[1])  # media_cloud_id and text
             count += 1
             if count % 100 == 0:
                 print(f"Checked {count} of {total} stories...")
