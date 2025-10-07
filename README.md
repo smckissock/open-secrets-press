@@ -4,6 +4,8 @@ A site to and find where OpenSecret's research has been cited and get a sense of
 
 [**View Live Site**](https://smckissock.github.io/open-secrets-press/)
 
+![Screenshot](./screenshot.png)
+
 ### Data Management
 - Uses the MediaCloud api to access OpenSecrets press coverage
 - Incorporates manually entered information about media outlets from a Google Sheet - media outlet type, state/country and political orientation 
