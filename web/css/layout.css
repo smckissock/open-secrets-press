@@ -29,7 +29,7 @@ a:active {
         "chart-mediaOutlet   chart-mediaOutletType      chart-list  "
         "chart-mediaOutlet   chart-state                chart-list  ";
     grid-template-columns: var(--left-width) var(--center-width) 1fr;
-    grid-template-rows: var(--logo-height) var(--bias-height)  1fr;
+    grid-template-rows: auto var(--bias-height)  1fr;
     gap: 10px 20px;
     margin: 3px;
     height: 100vh;  /* 100vh is not enough for some reason */
@@ -43,6 +43,7 @@ a:active {
     font-weight: 600; 
     margin-top: 5px;
 
+    min-height: var(--logo-height);
     fill: rgb(6, 15, 240); 
 }
 
