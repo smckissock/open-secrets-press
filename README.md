@@ -1,6 +1,6 @@
 # OpenSecrets Press
 
-A site to and find where OpenSecret's research has been cited and get a sense of the scope of OpenSecret's impact
+A site to and find where OpenSecrets' research has been cited and get a sense of the scope of OpenSecrets' impact
 
 [**View Live Site**](https://smckissock.github.io/open-secrets-press/)
 
