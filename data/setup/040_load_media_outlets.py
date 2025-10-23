@@ -1,3 +1,4 @@
+from tkinter import INSERT
 import duckdb
 from pathlib import Path
 
@@ -16,3 +17,5 @@ result = con.execute("SELECT COUNT(*) FROM stage_media_outlet").fetchone()
 print(f"Loaded {result[0]} rows into stage_media_outlets")
 
 con.close()
+
+

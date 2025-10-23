@@ -9,7 +9,7 @@ CREATE OR REPLACE TABLE story (
     media_outlet_id     INTEGER   NOT NULL DEFAULT 1,
     media_cloud_id      VARCHAR   NOT NULL UNIQUE,
     url                 VARCHAR   NOT NULL UNIQUE,
-    publish_date        TIMESTAMP NOT NULL DEFAULT TIMESTAMP '2000-01-01 00:00:00',
+    publish_date        DATE NOT NULL DEFAULT DATE '2000-01-01',
     title               VARCHAR   NOT NULL,
     language            VARCHAR   NOT NULL DEFAULT 'en',
     authors             VARCHAR   NOT NULL DEFAULT '',
@@ -19,7 +19,7 @@ CREATE OR REPLACE TABLE story (
     summary             VARCHAR   NOT NULL DEFAULT '',
     active              BOOLEAN   NOT NULL DEFAULT TRUE,
     FOREIGN KEY (syndicator_id)   REFERENCES syndicator(id),
-    FOREIGN KEY (media_outlet_id) REFERENCES media_outlet(id),
+    FOREIGN KEY (media_outlet_id) REFERENCES media_outlet(id)
 );
 
 
@@ -38,7 +38,7 @@ INSERT INTO story (
     sentence,
     active
 )
-SELECT 
+SELECT DISTINCT ON (url)
     1,                    -- syndicator_id (1 for now)
     media_outlet_id,      -- from the view (COALESCE ensures default of 1)
     media_cloud_id,       -- from stage_story.id

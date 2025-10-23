@@ -9,7 +9,8 @@ import pandas as pd
 from pathlib import Path
 import mediacloud.api
 
-from .db_connection import connect
+from .db_connection import connect ## for Dagster
+##from db_connection import connect  ## For F5
 
 load_dotenv()
 
@@ -53,7 +54,7 @@ def get_media_cloud_stories(conn: duckdb.DuckDBPyConnection) -> List[Dict[str, A
 
     max_date_str = conn.execute("SELECT MAX(publish_date) FROM stage_story").fetchone()[0]
     # start_date = dt.date(2024, 9, 26) To backfill.. 
-    start_date = dt.datetime.strptime(max_date_str, '%Y-%m-%d').date() 
+    start_date = dt.datetime.strptime(max_date_str, '%Y-%m-%d').date()   #!
     end_date: dt.date = dt.date.today()    
     print(f"Searching for stories from {start_date} to {end_date}")
 

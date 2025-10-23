@@ -9,7 +9,10 @@ from data.assets.make_stories_parquet import make_stories_parquet
 from data.assets.db_connection import connect
 
 
-@asset (description = "Gets latest stories using the Media Cloud api")
+@asset (
+    description = "Gets latest stories using the Media Cloud api",
+    group_name="Import"
+)
 def media_cloud_asset(context: AssetExecutionContext):
     stories_added = get_media_cloud()
     return MaterializeResult(
@@ -18,8 +21,9 @@ def media_cloud_asset(context: AssetExecutionContext):
     
 
 @asset (
+    deps=[media_cloud_asset],
     description = "Visit story to get body and metadata using the newspaper3k",
-    deps=[media_cloud_asset]
+    group_name="Transform"
 )
 def newspaper_asset(context: AssetExecutionContext):
     results = get_newspaper()
@@ -32,16 +36,20 @@ def newspaper_asset(context: AssetExecutionContext):
     
 
 @asset (
-    description = "Find the longest sentence that has OpenSecrets",
-    deps=[newspaper_asset]
+    deps=[newspaper_asset],
+    description = 'Find the longest sentence that has the text "OpenSecrets"',
+    group_name="Transform"
+    
 )
 def sentence_asset(context: AssetExecutionContext):
     get_sentence()
     
 
 @asset (
-    description = "Run sql script to create story table and populate it",
-    deps=[sentence_asset]
+    deps=[sentence_asset],
+    description = "Run sql script to drop/create story table and populate it",
+    group_name="Transform"
+    
 )
 def story_asset(context: AssetExecutionContext):
     sql_file = Path(__file__).parent.parent / "assets" / "scripts" / "populate_story.sql"
@@ -62,8 +70,9 @@ def story_asset(context: AssetExecutionContext):
 
 
 @asset (
+    deps=[story_asset],
     description = "Write stories.parquet and stories.csv from story_web_view",
-    deps=[story_asset]
+    group_name="Export"
 )
 def parquet_asset(context: AssetExecutionContext):
     story_count = make_stories_parquet()

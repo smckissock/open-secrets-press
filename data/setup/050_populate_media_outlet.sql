@@ -37,3 +37,23 @@ JOIN media_outlet_type mot ON mot.name = s.media_outlet_type
 JOIN state st              ON st.name = s.state
 JOIN bias_rating br        ON br.name = s.bias
 WHERE s.name <> 'Unspecified';
+
+
+-- ALSO THIS!
+ INSERT INTO media_outlet (
+   media_outlet_type_id,
+   state_id,
+   bias_rating_id,
+   name,
+   domain_name,
+   note,
+   active
+ ) VALUES (
+   8, -- Advocacy group
+   1, 
+   4, -- center
+   'OpenSecrets',
+   'opensecrets.org',
+   '',
+   true
+ )
