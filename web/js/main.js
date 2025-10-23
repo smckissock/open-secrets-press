@@ -77,14 +77,18 @@ export class Site {
                 <div class='filter-box-values'>${filterType.filters.join(', ')}</div>
             </div>
         `).join('');
-    
+
+        let clearButton = "";
+        if (filterTypes.length > 0) {
+            const filtersString = filterTypes.length == 1 ? "filter" : "filters";
+            clearButton = `<button id='clear-filters' class='clear-button'>Clear ${filtersString}</button>`;
+        } 
         const storyCount = dc.facts.allFiltered().length;
-    d3.select('#filters').html(`
-        <button id='clear-filters' class='clear-button'>Clear All</button>
-        <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
-        <a href='https://github.com/smckissock/open-secrets-press' target='_blank' rel='noopener noreferrer' class='github-link'>GitHub</a>
-        <div class='filter-boxes-container'>${filterBoxes}</div>
-    `);
+        d3.select('#filters').html(`
+            <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
+            <a href='https://github.com/smckissock/open-secrets-press' target='_blank' rel='noopener noreferrer' class='github-link'>GitHub</a>
+            <div class='filter-boxes-container'> ${filterBoxes}${clearButton}</div>
+        `);
     }
 
     
