@@ -77,7 +77,6 @@ def get_media_cloud_stories(conn: duckdb.DuckDBPyConnection) -> List[Dict[str, A
     return all_stories
 
 
-# Excludes those with duplicate IDs 
 def save_stories(conn: duckdb.DuckDBPyConnection, stories: List[Dict[str, Any]]) -> int: 
     df: pd.DataFrame = pd.DataFrame(stories)
     existing_ids: set = set(
