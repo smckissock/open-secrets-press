@@ -80,6 +80,42 @@ export class Site {
     });
   }
 
+  downloadCsv() {
+    const filteredData = this.facts.allFiltered();
+    
+    // Define CSV headers
+    const headers = ['mediaOutlet', 'biasRating', 'mediaOutletType', 'state', 'publishDate', 'authors', 'title', 'sentence', 'url', 'image'];
+    
+    // Create CSV content
+    const csvRows = [headers.join(',')];
+    
+    filteredData.forEach(story => {
+      const row = headers.map(header => {
+        let value = story[header] || '';
+        // Escape quotes and wrap in quotes if contains comma, quote, or newline
+        if (typeof value === 'string') {
+          value = value.replace(/"/g, '""');
+          if (value.includes(',') || value.includes('"') || value.includes('\n')) {
+            value = `"${value}"`;
+          }
+        }
+        return value;
+      });
+      csvRows.push(row.join(','));
+    });
+    
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `opensecrets_stories_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   showFilters() {
     const filterTypes = [];
     this.rowCharts.forEach(rowChart => {
@@ -104,12 +140,26 @@ export class Site {
       const filtersString = filterTypes.length == 1 ? "filter" : "filters";
       clearButton = `<button id='clear-filters' class='clear-button'>Clear ${filtersString}</button>`;
     }
+    
     const storyCount = dc.facts.allFiltered().length;
     d3.select('#filters').html(`
-      <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
-      <a href='https://github.com/smckissock/open-secrets-press' target='_blank' rel='noopener noreferrer' class='github-link'>GitHub</a>
-      <div class='filter-boxes-container'> ${filterBoxes}${clearButton}</div>
+        <div style='display: flex; justify-content: space-between; align-items: flex-start; width: 100%;'>
+            <div style='display: flex; flex-direction: column; gap: 10px;'>
+                <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
+                <div class='filter-boxes-container'>${filterBoxes}${clearButton}</div>
+            </div>
+            <div class='right-links'>
+                <a href='#' id='download-csv' class='github-link'>Download</a>
+                <a href='https://github.com/smckissock/open-secrets-press' target='_blank' rel='noopener noreferrer' class='github-link'>GitHub</a>
+            </div>
+        </div>
     `);
+
+    // Add event listener for download link
+    d3.select('#download-csv').on('click', (event) => {
+      event.preventDefault();
+      this.downloadCsv();
+    });
   }
 
   listStories() {

@@ -1,4 +1,3 @@
-
 .dc-chart g.row text {
     fill: #000;
     font-size: 14px;
@@ -246,17 +245,41 @@ p.story-excerpt {
     margin-bottom: 4px;
 }
 
-.github-link {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #5f656a;
+
+#filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
 
-.github-link:hover {
-    text-decoration: underline;
+#filters .right-links {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;   /* pushes them to the right */
 }
 
+#filters .github-link {
+  position: static;   /* cancel the global absolute */
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration:none;
+  padding-top: 0px;
+  font-size: 16px;
+  font-weight: 500;  
+}
+
+.github-link,
+.github-link:visited,
+.github-link:focus,
+.github-link:active {
+    color:#333;  
+    font-weight:500;
+}
+
+#filters .github-link:hover {
+    font-weight:700;  
+}
 
 
 #loading-overlay {
@@ -300,7 +323,3 @@ p.story-excerpt {
 .story-image.loaded {
     opacity: 1;
 }
-
-
-
-
