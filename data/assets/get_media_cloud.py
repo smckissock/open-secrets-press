@@ -48,13 +48,29 @@ def get_media_cloud_stories(conn: duckdb.DuckDBPyConnection) -> List[Dict[str, A
         231013108,  # Tweeted Evenly by Republican/Democrat Voters 2018
         231013109,  # Tweeted Somewhat More by Republican Voters 2018
         231013110,  # Tweeted Mostly by Republican Voters 2018
+
+        # 34411583,  # Canada - National
+        # 34412056,  # Japan - National
+        # 34412118,  # India - National
+        # 34412232,  # Russian Federation - National
+        # 34412282,  # Australia - National
+        # 34412427,  # Mexico - National
+        # 34412476,  # United Kingdom - National
+        # 38379799,  # France - State & Local
+        # 34412127,  # Korea, Republic of - National
+        # 34412193,  # China - National
+        # 34412409,  # Germany - National
     ]
     terms: List[str] = ["opensecrets"]
     ored_terms: str = " OR ".join(f'"{term}"' for term in terms)
 
     max_date_str = conn.execute("SELECT MAX(publish_date) FROM stage_story").fetchone()[0]
-    # start_date = dt.date(2024, 9, 26) To backfill.. 
-    start_date = dt.datetime.strptime(max_date_str, '%Y-%m-%d').date()   #!
+    # max_date_str = dt.date(2016, 9, 26)  # To backfill.. 
+    if isinstance(max_date_str, str):
+        start_date = dt.datetime.strptime(max_date_str, '%Y-%m-%d').date()
+    else:
+        start_date = max_date_str  # Already a date object
+
     end_date: dt.date = dt.date.today()    
     print(f"Searching for stories from {start_date} to {end_date}")
 

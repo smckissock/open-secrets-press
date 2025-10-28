@@ -5,8 +5,9 @@
     --bias-height: 200px;
     --media-type-height: 270px;
         
-    --left-width: 200px;
-    --center-width: 230px; 
+    --left-width: 190px;
+    --center-width: 200px; 
+    --right-width: 180px; 
 }
 
 body {
@@ -22,12 +23,12 @@ a:focus {
 .container {
     display: grid;
     grid-template-areas:
-        "title               title                      filters     "
-        "chart-mediaOutlet   chart-biasRating           chart-list  "
-        "chart-mediaOutlet   chart-mediaOutletType      chart-list  "
-        "chart-mediaOutlet   chart-state                chart-list  ";
-    grid-template-columns: var(--left-width) var(--center-width) 1fr;
-    grid-template-rows: auto var(--bias-height)  1fr;
+        "title               title                  title                   filters     "
+        "chart-mediaOutlet   chart-state            chart-biasRating        chart-list  "
+        "chart-mediaOutlet   chart-state            chart-mediaOutletType   chart-list  "
+        "chart-mediaOutlet   chart-state            chart-country           chart-list  ";
+    grid-template-columns: var(--left-width) var(--center-width) var(--right-width) 1fr;
+    grid-template-rows: auto var(--bias-height)  var(--media-type-height) 1fr;
     gap: 10px 20px;
     margin: 3px;
     height: 100vh;  /* 100vh is not enough for some reason */
@@ -62,6 +63,11 @@ a:focus {
     overflow-y: auto;
 }
 
+#chart-country {
+    grid-area: chart-country;
+    overflow-y: auto;
+}
+
 #chart-state {
     grid-area: chart-state;
     overflow-y: auto;
@@ -73,7 +79,7 @@ a:focus {
     overflow: auto;
 }
 
-#chart-topic, #chart-mediaOutlet, #chart-mediaOutletType, #chart-biasRating, #chart-state {
+#chart-topic, #chart-mediaOutlet, #chart-mediaOutletType, #chart-biasRating, #chart-state, #chart-country {
     font-weight: 500;
     font-size: 16px;
 }

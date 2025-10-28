@@ -22,24 +22,31 @@ LEFT JOIN stage_sentence sen ON s.id = sen.media_cloud_id
 LEFT JOIN media_outlet m ON m.domain_name = s.media_url;
 
 
-CREATE OR REPLACE VIEW media_outlet_view AS
-SELECT 
-    m.id,
-    m.edit_time,
-    m.name,
-    m.domain_name,
-    mot.name AS media_outlet_type,
-    mot.media_cloud_code,
-    s.name AS state,
-    s.code AS state_code,
-    s.is_state,
-    br.name AS bias_rating,
-    m.note,
-    m.active
-FROM media_outlet m
-JOIN media_outlet_type mot ON m.media_outlet_type_id = mot.id
-JOIN state s ON m.state_id = s.id
-JOIN bias_rating br ON m.bias_rating_id = br.id;
+CREATE OR REPLACE VIEW
+  media_outlet_view AS
+SELECT
+  m.id,
+  m.edit_time,
+  m."name",
+  m.domain_name,
+  mot."name" AS media_outlet_type,
+  mot.media_cloud_code,
+  s."name" AS state,
+  s.code AS state_code,
+  s.is_state,
+  c.name AS country,
+  br."name" AS bias_rating,
+  m.note,
+  m.active
+FROM
+  media_outlet AS m
+  INNER JOIN media_outlet_type AS mot ON (m.media_outlet_type_id = mot.id)
+  INNER JOIN state AS s ON (m.state_id = s.id)
+  INNER JOIN bias_rating AS br ON (m.bias_rating_id = br.id)
+  INNER JOIN country AS c ON (m.country_id = c.id);
+
+
+
 
 
 CREATE OR REPLACE VIEW story_web_view AS
@@ -56,6 +63,7 @@ SELECT
     m.media_outlet_type,
     COALESCE(NULLIF(m.state, 'Unspecified'), 'National') AS state,
     m.state_code,
+    m.country,
     m.bias_rating,
     s.sentence,
     syn.name AS syndicator

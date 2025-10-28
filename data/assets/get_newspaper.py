@@ -2,6 +2,8 @@
 import time
 import os
 import random
+import sys
+import io
 from datetime import datetime, date
 from typing import Any, Dict, Iterable, Tuple, Optional
 from dotenv import load_dotenv
@@ -9,6 +11,11 @@ from dotenv import load_dotenv
 import duckdb
 
 from .db_connection import connect
+
+# Force UTF-8 encoding for stdout/stderr on Windows to handle Unicode characters in URLs
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 
 def normalize_timestamp(value) -> Optional[datetime]:

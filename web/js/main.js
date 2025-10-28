@@ -64,7 +64,8 @@ export class Site {
       new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null),
       new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null),
       new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null),
-      new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State/Country', null)
+      new RowChart(this.facts, 'country', 200, 100, this.refresh, 'Country', null),
+      new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State', null)
     ];
   }
 
