@@ -5,145 +5,225 @@ import {RowChart} from './rowChart.js';
 // import {loadParquetData} from './dataLoader.js';
 
 async function loadGzipCsv(url) {
-  const { gunzipSync } = await import('https://cdn.jsdelivr.net/npm/fflate@0.8.2/esm/browser.js');
+    const { gunzipSync } = await import('https://cdn.jsdelivr.net/npm/fflate@0.8.2/esm/browser.js');
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Fetch failed for ${url}: ${res.status} ${res.statusText}`);
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Fetch failed for ${url}: ${res.status} ${res.statusText}`);
 
-  const gz = new Uint8Array(await res.arrayBuffer());
-  const csvBytes = gunzipSync(gz);
-  const csvText = new TextDecoder().decode(csvBytes);
+    const gz = new Uint8Array(await res.arrayBuffer());
+    const csvBytes = gunzipSync(gz);
+    const csvText = new TextDecoder().decode(csvBytes);
 
-  return d3.csvParse(csvText);
+    return d3.csvParse(csvText);
 }
 
 export class Site {
 
-  constructor() {
-    if (window.location.hostname === '127.0.0.1')
-      document.title = 'OpenSecrets DEV';
+    constructor() {
+        if (window.location.hostname === '127.0.0.1')
+            document.title = 'OpenSecrets DEV';
 
-    const overlay = document.getElementById('loading-overlay');
-    overlay.classList.replace('loading-hidden','loading-visible');
+        const overlay = document.getElementById('loading-overlay');
+        overlay.classList.replace('loading-hidden','loading-visible');
 
-    this.getData().then(stories => {
-      this.stories = stories;
-      this.stories.forEach(story => {
-        story.count = 1;
-        story.date = new Date(story.publishDate);
-        if (story.title == '') {
-          story.title = 'Link to story';
-        }
-      });
-      this.facts = new crossfilter(stories);
-      dc.facts = this.facts;
+        this.getData().then(stories => {
+            this.stories = stories;
+            this.stories.forEach(story => {
+                story.count = 1;
+                story.date = new Date(story.publishDate);
 
-      this.setupCharts();
-      dc.renderAll();
+                // ----- Annual index: one bar per calendar year -----
+                story.yearNum = story.date.getFullYear();
 
-      overlay.classList.replace('loading-visible','loading-hidden');
-      this.refresh();
-    });
+                if (story.title === '') {
+                    story.title = 'Link to story';
+                }
+            });
+            this.facts = new crossfilter(stories);
+            dc.facts = this.facts;
 
-    window.site = this;
-  }
+            this.setupDateChart();
+            this.setupRowCharts();
+            dc.renderAll();
 
-  async getData() {
-    // Brotli would be a better choice, but can';'t control headers on github pages. 
-    return await loadGzipCsv('data/stories.csv.gz');
-
-    // Parquet is wrong choice for smalller mostly text csvs. Extra time to load parquetjs-wasm and decode
-    // const { loadParquetData } = await import('./dataLoader.js');
-    // return await loadParquetData('data/stories.parquet');
-  }
-
-  setupCharts() {
-    dc.refresh = this.refresh;
-
-    this.rowCharts = [
-      new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null),
-      new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null),
-      new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null),
-      new RowChart(this.facts, 'country', 200, 100, this.refresh, 'Country', null),
-      new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State', null)
-    ];
-  }
-
-  refresh() {
-    window.site.listStories();
-    window.site.showFilters();
-
-    d3.select('#clear-filters').on('click', function() {
-      dc.filterAll();
-      dc.redrawAll();
-      dc.refresh();
-      window.site.listStories();
-    });
-  }
-
-  downloadCsv() {
-    const filteredData = this.facts.allFiltered();
-    
-    // Define CSV headers
-    const headers = ['mediaOutlet', 'biasRating', 'mediaOutletType', 'state', 'publishDate', 'authors', 'title', 'sentence', 'url', 'image'];
-    
-    // Create CSV content
-    const csvRows = [headers.join(',')];
-    
-    filteredData.forEach(story => {
-      const row = headers.map(header => {
-        let value = story[header] || '';
-        // Escape quotes and wrap in quotes if contains comma, quote, or newline
-        if (typeof value === 'string') {
-          value = value.replace(/"/g, '""');
-          if (value.includes(',') || value.includes('"') || value.includes('\n')) {
-            value = `"${value}"`;
-          }
-        }
-        return value;
-      });
-      csvRows.push(row.join(','));
-    });
-    
-    const csvContent = csvRows.join('\n');
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.setAttribute('href', url);
-    link.setAttribute('download', `opensecrets_stories_${new Date().toISOString().split('T')[0]}.csv`);
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-  showFilters() {
-    const filterTypes = [];
-    this.rowCharts.forEach(rowChart => {
-      const chartFilters = rowChart.chart.filters();
-      if (chartFilters.length > 0) {
-        filterTypes.push({
-          name: rowChart.title,
-          filters: chartFilters
+            overlay.classList.replace('loading-visible','loading-hidden');
+            this.refresh();
         });
-      }
-    });
 
-    const filterBoxes = filterTypes.map(filterType => `
+        window.site = this;
+    }
+
+    async getData() {
+        // Brotli would be a better choice, but can't control headers on github pages.
+        return await loadGzipCsv('data/stories.csv.gz');
+
+        // Parquet is wrong choice for smaller mostly text csvs. Extra time to load parquetjs-wasm and decode
+        // const { loadParquetData } = await import('./dataLoader.js');
+        // return await loadParquetData('data/stories.parquet');
+    }
+
+    setupDateChart() {
+
+		function addWatermark(chart) {
+    		const body = chart.select('g.chart-body');
+    		body.selectAll('text.chart-watermark').remove();
+
+    		body.append('text')
+        		.attr('class', 'chart-watermark')
+        		.attr('x', 30)
+        		.attr('y', 30)               
+        		.attr('font-size', 22)
+        		.attr('font-weight', 600)
+        		.attr('fill', '#d0d0d0e3')
+        		.style('pointer-events', 'none')
+        		.text('Stories per year');
+		}
+
+        const dateDim = this.facts.dimension(d => d.yearNum);
+        const dateGroup = dateDim.group().reduceCount();
+
+        const dataExtent = d3.extent(this.stories, d => d.yearNum);
+        const pad = 1; 
+        const xMin = dataExtent[0] - pad;
+        const xMax = dataExtent[1] + pad;
+
+        const tickStart = dataExtent[0];
+        const tickEnd = dataExtent[1] + 1; // d3.range end is exclusive
+        const yearTickValues = d3.range(tickStart, tickEnd, 1);
+
+        this.dateChart = dc.barChart('#chart-date')
+            .dimension(dateDim)
+            .group(dateGroup)
+            .x(d3.scaleLinear().domain([xMin, xMax]))
+            .xUnits(dc.units.integers)          // integer bins for years
+            .centerBar(true)
+            .gap(4)
+            .brushOn(true)
+            .elasticY(true)
+            .width(620)
+            .height(140)
+            .margins({ top: 10, right: 20, bottom: 24, left: 36 })
+            .ordinalColors(['#9ecae1'])
+            //.yAxisLabel('stories per Year')
+            .on('filtered', () => this.refresh());
+
+        // Axes
+        this.dateChart.yAxis().ticks(3);
+        this.dateChart.xAxis()
+            .tickValues(yearTickValues)
+            .tickFormat(d3.format('d')); // show year as integer (e.g., 2023)
+
+        // Snap brush to whole years
+        this.dateChart.round(Math.floor);
+
+		this.dateChart
+    		.on('postRender', addWatermark)
+    		.on('postRedraw', addWatermark);
+    }
+
+    setupRowCharts() {
+        dc.refresh = this.refresh;
+
+        this.rowCharts = [
+            new RowChart(this.facts, 'mediaOutlet', dc.leftWidth, 160, this.refresh, 'Media Outlet', null),
+            new RowChart(this.facts, 'biasRating', 160, 6, this.refresh, 'Political Orientation', null),
+            new RowChart(this.facts, 'mediaOutletType', 200, 9, this.refresh, 'Media Type', null),
+            new RowChart(this.facts, 'country', 200, 100, this.refresh, 'Country', null),
+            new RowChart(this.facts, 'state', 200, 100, this.refresh, 'State', null)
+        ];
+    }
+
+    refresh() {
+        window.site.listStories();
+        window.site.showFilters();
+
+        d3.select('#clear-filters').on('click', function() {
+            dc.filterAll();
+            dc.redrawAll();
+            dc.refresh();
+            window.site.listStories();
+        });
+    }
+
+    downloadCsv() {
+        const filteredData = this.facts.allFiltered();
+
+        // Define CSV headers
+        const headers = ['mediaOutlet', 'biasRating', 'mediaOutletType', 'state', 'publishDate', 'authors', 'title', 'sentence', 'url', 'image'];
+
+        // Create CSV content
+        const csvRows = [headers.join(',')];
+
+        filteredData.forEach(story => {
+            const row = headers.map(header => {
+                let value = story[header] || '';
+                // Escape quotes and wrap in quotes if contains comma, quote, or newline
+                if (typeof value === 'string') {
+                    value = value.replace(/"/g, '""');
+                    if (value.includes(',',) || value.includes('"') || value.includes('\n')) {
+                        value = `"${value}"`;
+                    }
+                }
+                return value;
+            });
+            csvRows.push(row.join(','));
+        });
+
+        const csvContent = csvRows.join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', `opensecrets_stories_${new Date().toISOString().split('T')[0]}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    showFilters() {
+        const filterTypes = [];
+
+        // Include row chart filters
+        this.rowCharts.forEach(rowChart => {
+            const chartFilters = rowChart.chart.filters();
+            if (chartFilters.length > 0) {
+                filterTypes.push({
+                    name: rowChart.title,
+                    filters: chartFilters
+                });
+            }
+        });
+
+        // Include YEAR brush as a filter pill when active
+        if (this.dateChart && this.dateChart.hasFilter && this.dateChart.hasFilter()) {
+            // Derive the visible year span from currently filtered rows
+            const filtered = this.facts.allFiltered();
+            if (filtered.length > 0) {
+                const [minYear, maxYear] = d3.extent(filtered, d => d.yearNum);
+                const label = (minYear === maxYear) ? `${minYear}` : `${minYear}–${maxYear}`;
+                filterTypes.push({
+                    name: 'Year',
+                    filters: [label]
+                });
+            }
+        }
+
+        const filterBoxes = filterTypes.map(filterType => `
       <div class='filter-box'>
         <div class='filter-box-title'>${filterType.name}</div>
         <div class='filter-box-values'>${filterType.filters.join(', ')}</div>
       </div>
     `).join('');
 
-    let clearButton = "";
-    if (filterTypes.length > 0) {
-      const filtersString = filterTypes.length == 1 ? "filter" : "filters";
-      clearButton = `<button id='clear-filters' class='clear-button'>Clear ${filtersString}</button>`;
-    }
-    
-    const storyCount = dc.facts.allFiltered().length;
-    d3.select('#filters').html(`
+        let clearButton = "";
+        if (filterTypes.length > 0) {
+            const filtersString = filterTypes.length == 1 ? "filter" : "filters";
+            clearButton = `<button id='clear-filters' class='clear-button'>Clear ${filtersString}</button>`;
+        }
+
+        const storyCount = dc.facts.allFiltered().length;
+        d3.select('#filters').html(`
         <div style='display: flex; justify-content: space-between; align-items: flex-start; width: 100%;'>
             <div style='display: flex; flex-direction: column; gap: 10px;'>
                 <span class='case-count'>${addCommas(storyCount)} OpenSecrets citations</span>
@@ -156,17 +236,18 @@ export class Site {
         </div>
     `);
 
-    // Add event listener for download link
-    d3.select('#download-csv').on('click', (event) => {
-      event.preventDefault();
-      this.downloadCsv();
-    });
-  }
+        // Add event listener for download link
+        d3.select('#download-csv').on('click', (event) => {
+            event.preventDefault();
+            this.downloadCsv();
+        });
+    }
 
-  listStories() {
-    const storiesToShow = 60;
-    function storyResult(d) {
-      return `
+    listStories() {
+        const storiesToShow = 60;
+
+        function storyResult(d) {
+            return `
         <div class="story" onclick="window.open('${d.url}', '_blank', 'noopener')">
           <img
             class="story-image"
@@ -190,16 +271,16 @@ export class Site {
           </div>
         </div>
       `;
+        }
+
+        let html = this.facts.allFiltered()
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, storiesToShow)
+            .map(d => storyResult(d))
+            .join('');
+
+        d3.select('#chart-list').html(html);
     }
-
-    let html = this.facts.allFiltered()
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, storiesToShow)
-      .map(d => storyResult(d))
-      .join('');
-
-    d3.select('#chart-list').html(html);
-  }
 }
 
 new Site();

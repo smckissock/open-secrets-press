@@ -3,11 +3,12 @@
 
     --logo-height: 110px;  
     --bias-height: 200px;
+    --date-height: 160px;
     --media-type-height: 270px;
         
     --left-width: 190px;
     --center-width: 200px; 
-    --right-width: 180px; 
+    --right-width: 200px; 
 }
 
 body {
@@ -24,11 +25,12 @@ a:focus {
     display: grid;
     grid-template-areas:
         "title               title                  title                   filters     "
+        "chart-date          chart-date             chart-date              chart-list  "
         "chart-mediaOutlet   chart-state            chart-biasRating        chart-list  "
         "chart-mediaOutlet   chart-state            chart-mediaOutletType   chart-list  "
         "chart-mediaOutlet   chart-state            chart-country           chart-list  ";
     grid-template-columns: var(--left-width) var(--center-width) var(--right-width) 1fr;
-    grid-template-rows: auto var(--bias-height)  var(--media-type-height) 1fr;
+    grid-template-rows: auto var(--date-height) var(--bias-height)  var(--media-type-height) 1fr;
     gap: 10px 20px;
     margin: 3px;
     height: 100vh;  /* 100vh is not enough for some reason */
@@ -48,6 +50,11 @@ a:focus {
 
 #filters {
     grid-area: filters;
+}
+
+
+#chart-date {
+    grid-area: chart-date;
 }
 
 #chart-mediaOutletType {

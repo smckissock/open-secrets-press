@@ -117,7 +117,7 @@
 }
 
 #filters {
-    padding-top: 18px;
+    padding-top: 8px;
     font-size: 20px;
     font-weight: 500;   
 }
@@ -206,30 +206,26 @@ p.story-excerpt {
 
 
 .story-body {
-    /* Your existing styles */
-    cursor: pointer; /* Changes the cursor to a hand icon to indicate it's clickable */
-    transition: background-color 0.3s ease; /* Smooth transition for the highlight effect */
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
 .story-body:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
-    /* You could also use other highlight effects: */
-    /* box-shadow: 0 0 5px rgba(0,0,0,0.2); */ /* Subtle shadow effect */
-    /* border: 1px solid #ddd; */ /* Border highlight */
+    background-color: #f0f0f0; 
 }
 
 
 .filter-boxes-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 8px;
+    margin-top: 8px;
 }
 
 .filter-box {
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 8px 12px;
+    padding: 4px 12px;
     background-color: #f5f5f5;
 }
 
